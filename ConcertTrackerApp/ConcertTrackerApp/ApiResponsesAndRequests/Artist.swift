@@ -57,30 +57,20 @@ class Results<T:Entity>: ResultsProtocol, Decodable {
     }
 }
 
-
 class Artist: Decodable, Entity {
     static func entityName() -> String {
         return "artist"
     }
-    
     var displayName: String?
-    //var identifier: SearchArtist_Lists?
     var uri: String?
     var onTourUntil: String?
     var id: Int?
-    
 }
-
-
-
-
-
 
 class City: Decodable,Entity {
     static func entityName() -> String {
         return "venue"
     }
-    
     var displayName: String?
     var uri: String?
     var onTourUntil: String?

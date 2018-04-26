@@ -14,14 +14,16 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        try! RequestManager.shared.searchArtist(name: "Pink Floyd") { (artist) in
-            print()
+        try! RequestManager.shared.searchArtist(name: "Ed Sheeran") { (artist) in
+            for item in artist {
+                print(item.displayName ?? "no item parsed",item.displayName)
+            }
         }
-        
-        try! RequestManager.shared.getDataWithCityName(name: "London")
-        
-        RequestManager.shared.getDataWithVenueName(name: "Grammy Awards")  { (artist) in
-        }
+//
+          //try! RequestManager.shared.getDataWithCityName(name: "London")
+//
+//        RequestManager.shared.getDataWithVenueName(name: "Grammy Awards")  { (artist) in
+//        }
         
     }
     

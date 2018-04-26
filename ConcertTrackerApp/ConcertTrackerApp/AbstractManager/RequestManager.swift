@@ -22,6 +22,10 @@ class RequestManager {
             case .success(let data):
                 do {
                     let decodedResponse = try JSONDecoder().decode(SearchPage<Artist>.self, from: data)
+//                    print(decodedResponse.resultsPage?.results?.info)
+//                    for item in (decodedResponse.resultsPage?.results?.info)! {
+//                        print(item.displayName)
+//                    }
                     guard let resultPage = decodedResponse.resultsPage, let results = resultPage.results, let artists = results.info else {
                         throw Failure(message: "Invalid JSON data")
                     }

@@ -13,17 +13,14 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        SearchArtistRequest.shared.fetchDataFromApi()
         
-//        let getRequest = GetArtistByNameRequest()
-//        getRequest.artistQuery = "Pink Floyd"
-//        getRequest.getdata(artistName: "Pink Floyd")
-//
-//        let getVenueRequest = GetVenueByNameRequest()
-//        getVenueRequest.getdata(artistName: "Grammy Awards")
-//
-        let getVenueCityRequest = GetVenueByCityNameRequest()
-        getVenueCityRequest.getdata(artistName: "London")
+        try! RequestManager.shared.searchArtist(name: "Pink Floyd") { (artist) in
+        }
+        
+        try! RequestManager.shared.getDataWithCityName(name: "London")
+        
+        RequestManager.shared.getDataWithVenueName(name: "Grammy Awards")  { (artist) in
+        }
         
     }
     

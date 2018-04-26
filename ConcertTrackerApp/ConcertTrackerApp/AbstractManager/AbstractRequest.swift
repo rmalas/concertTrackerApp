@@ -62,11 +62,6 @@ class AbstractRequest {
 
 
 
-
-
-
-
-
 class GetEventDetails: AbstractRequest {
     var eventId: Int?
     
@@ -93,16 +88,20 @@ class RequestManager {
     static let shared = RequestManager()
     
     
-    func searchArtist(byName name: String) throws {
+    func searchArtist(name artistName: String, completion: (_ artists: Artist) -> Void) throws {
         let request = GetArtistByNameRequest()
-        request.artistQuery = name
+        request.artistQuery = artistName
         guard let url = URL(string: request.requestUrl) else { throw Failure(message: "Invalid request URL") }
         Alamofire.request(url).responseString { (response) in
             switch (response.result) {
             case .success(let responseString):
-                if let responseWithParsedData = SearchArtistResponse(JSONString: responseString) {
-                    Helper.shared.someArtistsArray.append(responseWithParsedData)
-                    print(Helper.shared.someArtistsArray)
+                let data = responseString.data(using: String.Encoding.utf8)
+                do {
+                    let responseWithParsedData = try JSONDecoder().decode(SearchPage<Artist>.self, from: data!)
+                    print(responseWithParsedData.resultsPage?.page as! Int)
+                } catch (let error) {
+                    print(error)
+                    // TODO: handle error
                 }
             case .failure(let error):
                 print(error)
@@ -110,16 +109,105 @@ class RequestManager {
         }
     }
     
-//    func searchArtist(byName name:String) throws {
-//        let request = GetArtistByNameRequest()
-//        request.artistQuery = name
-//        guard let url = URL(string: request.requestUrl) else {
-//            throw Failure(message: "Invalid request URL")
-//        }
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            }.resume()
-//    }
+    func getDataWithCityName(name cityName: String) throws {
+        let request = GetVenueByCityNameRequest()
+        request.artistQuery = cityName
+        guard let url = URL(string: request.requestUrl) else { throw Failure(message: "Invalid request URL") }
+        Alamofire.request(url).responseString { (response) in
+            switch (response.result) {
+            case .failure(let error):
+                print(error)
+            case .success(let responseString):
+                let data = responseString.data(using: String.Encoding.utf8)
+                do {
+                    let responseWithParsedData = try JSONDecoder().decode(SearchVenueByCityNameResults.self, from: data!)
+                    for item in (responseWithParsedData.resultsPage?.results.location)! {
+                        print(item.metroArea.displayName)
+                    }
+                    print(responseWithParsedData)
+                } catch (let error) {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func getDataWithVenueName(name venueName: String, completion: (_ city: City) -> Void) {
+        let request = GetVenueByNameRequest()
+        request.artistQuery = venueName
+        guard let url = URL(string: request.requestUrl) else { return }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, error, _) in
+            guard let data = data else { return }
+            do {
+                let users = try JSONDecoder().decode(VenuesSearch_ResultsPage.self, from: data)
+                print(users)
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    //    override func getdata(artistName name: String)  {
+    //        let request = GetVenueByNameRequest()
+    //        request.artistQuery = name
+    //        guard let url = URL(string: request.requestUrl) else { return }
+    //
+    //        let session = URLSession.shared
+    //        let task = session.dataTask(with: url) { (data, error, _) in
+    //            guard let data = data else { return }
+    //            do {
+    //                let users = try JSONDecoder().decode(VenuesSearch_ResultsPage.self, from: data)
+    //                //               print(users)
+    //                for item in (users.resultsPage.results?.venue)! {
+    //                    print(item)
+    //                }
+    //            } catch {
+    //                print(error)
+    //            }
+    //        }
+    //        task.resume()
+    //    }
+    
+    
+    
+    
+    
+    //    override func getdata(artistName name: String) {
+    //        let request = GetVenueByCityNameRequest()
+    //        request.artistQuery = name
+    //        guard let url = URL(string: request.requestUrl) else { return }
+    //
+    //        let session = URLSession.shared
+    //        let task = session.dataTask(with: url) { (data, error, _) in
+    //            guard let data = data else { return }
+    //            do {
+    //                let ccc = try JSONSerialization.jsonObject(with: data, options: [])
+    //                //print(ccc)
+    //                let users = try JSONDecoder().decode(SearchVenueByCityNameResults.self, from: data)
+    //                print(users)
+    //                //                for item in (users.resultPage?.results)! {
+    //                //                    print(item.location)
+    //                //                }
+    //            } catch {
+    //                print(error)
+    //            }
+    //        }
+    //        task.resume()    }
+    
+    
+    //    func searchArtist(byName name:String) throws {
+    //        let request = GetArtistByNameRequest()
+    //        request.artistQuery = name
+    //        guard let url = URL(string: request.requestUrl) else {
+    //            throw Failure(message: "Invalid request URL")
+    //        }
+    //        URLSession.shared.dataTask(with: url) { (data, response, error) in
+    //
+    //            }.resume()
+    //    }
 }
 
 

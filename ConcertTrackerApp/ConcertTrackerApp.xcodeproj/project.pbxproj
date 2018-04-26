@@ -13,9 +13,12 @@
 		1E1748082088732200D6A6D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748072088732200D6A6D6 /* Assets.xcassets */; };
 		1E17480B2088732200D6A6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */; };
 		1E1748142088750E00D6A6D6 /* SearchArtistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748132088750E00D6A6D6 /* SearchArtistRequest.swift */; };
-		1E1748162088769D00D6A6D6 /* GetArtistApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748152088769D00D6A6D6 /* GetArtistApiResponse.swift */; };
-		1E1748192088965500D6A6D6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748182088965500D6A6D6 /* Artist.swift */; };
+		1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */; };
+		1E1748192088965500D6A6D6 /* ArtistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748182088965500D6A6D6 /* ArtistPage.swift */; };
 		1E17481B208896EF00D6A6D6 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E17481A208896EF00D6A6D6 /* PageCell.swift */; };
+		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
+		1E4394A72091AD4200555804 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A62091AD4200555804 /* Venue.swift */; };
+		1E4394A92091BDD100555804 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* Requests.swift */; };
 		1E87F68B208A25B4000F9501 /* SearchVenueByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68A208A25B4000F9501 /* SearchVenueByNameRequest.swift */; };
 		1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */; };
 		1E87F68F208DB970000F9501 /* SearchVenueWithCityNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68E208DB970000F9501 /* SearchVenueWithCityNameRequest.swift */; };
@@ -23,6 +26,7 @@
 		1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */; };
 		1ED1FBEE2088B3CD009D5E39 /* GetSimilarArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBED2088B3CD009D5E39 /* GetSimilarArtistResponse.swift */; };
 		1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */; };
+		1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5428A208F1BFE0058D5FF /* Favourites.swift */; };
 		CA321B78A9B9FF51B673A7DD /* Pods_ConcertTrackerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED5C163E88591F6894A8571 /* Pods_ConcertTrackerApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,9 +39,12 @@
 		1E17480A2088732200D6A6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E17480C2088732200D6A6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E1748132088750E00D6A6D6 /* SearchArtistRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistRequest.swift; sourceTree = "<group>"; };
-		1E1748152088769D00D6A6D6 /* GetArtistApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistApiResponse.swift; sourceTree = "<group>"; };
-		1E1748182088965500D6A6D6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistResponse.swift; sourceTree = "<group>"; };
+		1E1748182088965500D6A6D6 /* ArtistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistPage.swift; sourceTree = "<group>"; };
 		1E17481A208896EF00D6A6D6 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		1E4394A62091AD4200555804 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		1E4394A82091BDD100555804 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		1E87F68A208A25B4000F9501 /* SearchVenueByNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueByNameRequest.swift; sourceTree = "<group>"; };
 		1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameResponse.swift; sourceTree = "<group>"; };
 		1E87F68E208DB970000F9501 /* SearchVenueWithCityNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueWithCityNameRequest.swift; sourceTree = "<group>"; };
@@ -45,6 +52,7 @@
 		1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonHelper.swift; sourceTree = "<group>"; };
 		1ED1FBED2088B3CD009D5E39 /* GetSimilarArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSimilarArtistResponse.swift; sourceTree = "<group>"; };
 		1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequest.swift; sourceTree = "<group>"; };
+		1EF5428A208F1BFE0058D5FF /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		8861B5AF571AD612620123AA /* Pods-ConcertTrackerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertTrackerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcertTrackerApp/Pods-ConcertTrackerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8ED5C163E88591F6894A8571 /* Pods_ConcertTrackerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConcertTrackerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B664DEC37DFC6BD31EFF5A1E /* Pods-ConcertTrackerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertTrackerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConcertTrackerApp/Pods-ConcertTrackerApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +91,7 @@
 		1E1747FF2088732200D6A6D6 /* ConcertTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				1EF54289208F1BDE0058D5FF /* RealmModels */,
 				1E1748172088964400D6A6D6 /* Custom CollectionView */,
 				1E174812208874E200D6A6D6 /* ApiResponsesAndRequests */,
 				1ED1FBF12089D047009D5E39 /* AbstractManager */,
@@ -102,10 +111,13 @@
 				1E1748132088750E00D6A6D6 /* SearchArtistRequest.swift */,
 				1E87F68A208A25B4000F9501 /* SearchVenueByNameRequest.swift */,
 				1E87F68E208DB970000F9501 /* SearchVenueWithCityNameRequest.swift */,
-				1E1748152088769D00D6A6D6 /* GetArtistApiResponse.swift */,
+				1E4394A82091BDD100555804 /* Requests.swift */,
 				1ED1FBED2088B3CD009D5E39 /* GetSimilarArtistResponse.swift */,
+				1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */,
 				1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */,
 				1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */,
+				1E4394A42090D5CD00555804 /* Artist.swift */,
+				1E4394A62091AD4200555804 /* Venue.swift */,
 			);
 			path = ApiResponsesAndRequests;
 			sourceTree = "<group>";
@@ -113,7 +125,7 @@
 		1E1748172088964400D6A6D6 /* Custom CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				1E1748182088965500D6A6D6 /* Artist.swift */,
+				1E1748182088965500D6A6D6 /* ArtistPage.swift */,
 				1E17481A208896EF00D6A6D6 /* PageCell.swift */,
 				1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */,
 			);
@@ -126,6 +138,14 @@
 				1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */,
 			);
 			path = AbstractManager;
+			sourceTree = "<group>";
+		};
+		1EF54289208F1BDE0058D5FF /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				1EF5428A208F1BFE0058D5FF /* Favourites.swift */,
+			);
+			path = RealmModels;
 			sourceTree = "<group>";
 		};
 		42ECB7C9C45795E1B6E64F7A /* Frameworks */ = {
@@ -240,12 +260,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ConcertTrackerApp/Pods-ConcertTrackerApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -259,15 +281,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E1748192088965500D6A6D6 /* Artist.swift in Sources */,
+				1E1748192088965500D6A6D6 /* ArtistPage.swift in Sources */,
+				1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */,
 				1E1748142088750E00D6A6D6 /* SearchArtistRequest.swift in Sources */,
+				1E4394A52090D5CD00555804 /* Artist.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
 				1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */,
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
 				1ED1FBEE2088B3CD009D5E39 /* GetSimilarArtistResponse.swift in Sources */,
 				1E17481B208896EF00D6A6D6 /* PageCell.swift in Sources */,
+				1E4394A92091BDD100555804 /* Requests.swift in Sources */,
+				1E4394A72091AD4200555804 /* Venue.swift in Sources */,
 				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,
-				1E1748162088769D00D6A6D6 /* GetArtistApiResponse.swift in Sources */,
+				1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */,
 				1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */,
 				1E87F68B208A25B4000F9501 /* SearchVenueByNameRequest.swift in Sources */,
 				1E1748012088732200D6A6D6 /* AppDelegate.swift in Sources */,
@@ -419,10 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FHHDVG3C3L;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rmalas.ConcertTrackerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -438,10 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FHHDVG3C3L;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rmalas.ConcertTrackerApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

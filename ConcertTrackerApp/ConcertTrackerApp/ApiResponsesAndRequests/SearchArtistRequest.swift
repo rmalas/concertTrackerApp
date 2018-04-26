@@ -24,22 +24,6 @@ class GetArtistByNameRequest: AbstractRequest {
         }
         return queryParameters
     }
-    
-    override func getdata(artistName name: String)  {
-        let request = GetArtistByNameRequest()
-        request.artistQuery = name
-        guard let url = URL(string: request.requestUrl) else { return }
-        Alamofire.request(url).responseString { (response) in
-            switch (response.result) {
-            case .success(let responseString):
-                if let responseWithParsedData = SearchArtistResponse(JSONString: responseString) {
-                    Helper.shared.someArtistsArray.append(responseWithParsedData)
-                    print(responseWithParsedData.resultsPage?.perPage as! Int)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }
+
+

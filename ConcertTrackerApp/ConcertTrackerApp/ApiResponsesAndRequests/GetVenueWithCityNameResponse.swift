@@ -7,114 +7,61 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class SearchVenueByNameResults:Mappable {
+struct SearchVenueByCityNameResults:Decodable {
     
-    var resultPage: VenueCityResultsPage?
+    let resultsPage: VenueCityResultsPage?
     
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        resultPage <- map["resultsPage"]
-    }
 }
 
-class VenueCityResultsPage: Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        status <- map["status"]
-        results <- map["results"]
-        perPage <- map["perPage"]
-        page <- map["page"]
-        totalEntries <- map ["totalEntries"]
-    }
+struct VenueCityResultsPage: Decodable {
 
-    var status: String?
-    var results: [VenueCityResultsArray]?
-    var perPage: Int?
-    var page: Int?
-    var totalEntries: Int?
+    let status: String
+    let results: VenueCityResults
+    let perPage: Int
+    let page: Int
+    let totalEntries: Int
     
     
 }
 
 
-class VenueCityResultsArray: Mappable {
-    required init?(map: Map) {}
+struct VenueCityResults: Decodable {
     
-    func mapping(map: Map) {
-        location <- map["location"]
-    }
-    
-    var location: [LocationsData]?
+    let location: [LocationsData]
 }
 
-class LocationsData: Mappable {
-    required init?(map: Map) {}
+struct LocationsData: Decodable {
     
-    func mapping(map: Map) {
-        city <- map["city"]
-        metroArea <- map["metroArea"]
-    }
-    
-    var city: CityDescr?
-    var metroArea:MetroArea?
+    let city: CityDescr
+    let metroArea:MetroArea
     
 }
 
-class CityDescr: Mappable {
-    required init?(map: Map) {}
+struct CityDescr: Decodable {
+
     
-    func mapping(map: Map) {
-        lat <- map["lat"]
-        lng <- map["lng"]
-        country <- map["country"]
-        displayName <- map["displayName"]
-        
-    }
-    
-    var lat: Double?
-    var lng: Double?
-    var country: Country?
-    var displayName: String?
+    let lat: Double?
+    let lng: Double?
+    let country: Country
+    let displayName: String
     
 }
 
-class MetroArea: Mappable {
-    required init?(map: Map) {}
+struct MetroArea: Decodable {
     
-    func mapping(map: Map) {
-        lat <- map["lat"]
-        lng <- map["lng"]
-        country <- map["country"]
-        uri <- map["uri"]
-        displayName <- map["displayName"]
-        id  <- map["id"]
-    }
-    
-    var lat: Double?
-    var lng: Double?
-    var country: Country?
-    var uri: String?
-    var displayName: String?
-    var id: Int?
+    let lat: Double?
+    let lng: Double?
+    let country: Country
+    let uri: String
+    let displayName: String
+    let id: Int
     
 }
 
-class Country: Mappable {
-    required init?(map: Map) {}
+struct Country: Decodable {
     
-    func mapping(map: Map) {
-        displayName <- map["displayName"]
-    }
-    
-    var displayName: String?
+    let displayName: String
     
 }
 

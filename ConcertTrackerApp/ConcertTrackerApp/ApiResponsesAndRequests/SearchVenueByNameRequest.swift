@@ -23,26 +23,4 @@ class GetVenueByNameRequest: AbstractRequest {
         }
         return queryParameters
     }
-    
-    override func getdata(artistName name: String)  {
-        let request = GetVenueByNameRequest()
-        request.artistQuery = name
-        guard let url = URL(string: request.requestUrl) else { return }
-        Alamofire.request(url).responseString { (response) in
-            switch (response.result) {
-            case .success(let responseString):
-                if let responseStringWithParsedData = VenueSearchResultsPage(JSONString: responseString) {
-                    print(responseStringWithParsedData.resultsPage?.totalEntries ?? "no value set for now")
-                    print(responseStringWithParsedData.resultsPage?.results?.city?.country?.displayName ?? "no value set for now")
-                    Helper.shared.VenyeDetailsArray.append(responseStringWithParsedData)
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-            
-        }
-    }
-    
-    
 }

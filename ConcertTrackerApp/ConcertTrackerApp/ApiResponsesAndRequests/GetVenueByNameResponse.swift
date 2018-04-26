@@ -7,155 +7,60 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class VenueSearchResultsPage: Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        resultsPage <- map["resultsPage"]
-    }
-    
-    var resultsPage: ResultsInfo?
-    
+struct VenuesSearch_ResultsPage:Decodable {
+    let resultsPage: VenuesSearch_Info
+}
+
+struct VenuesSearch_Info: Decodable {
+    let status: String?
+    let results: VenuesSearch_Results?
+    let perPage: Int?
+    let page:Int?
+    let totalEntries:Int?
+}
+
+struct VenuesSearch_Results: Decodable {
+    let venue: [VenuesSearch_Venue]?
+}
+
+struct VenuesSearch_Venue: Decodable {
+    let lng: Double?
+    let capacity: Int?
+    let zip: String
+    let description: String
+    let street: String
+    let displayName: String
+    let website: String?
+    let city:VenuesSearch_City
+    let uri: String
+    let id: Int
+    let metroArea: VenuesSearch_MetroArea
+    let phone: String?
+    let lat: Double?
+}
+
+struct VenuesSearch_City: Decodable {
+    let displayName: String
+    let uri: String
+    let id: Int
+    let country: VenuesSearch_Country
+}
+
+struct VenuesSearch_Country:Decodable {
+    let displayName: String
+}
+
+struct VenuesSearch_MetroArea:Decodable {
+    let displayName: String
+    let uri: String
+    let id: Int
+    let country: VenuesSearch_Country
+
 }
 
 
-class ResultsInfo:Mappable {
-    required init?(map: Map) {  }
-    
-    func mapping(map: Map) {
-        status <- map["status"]
-        results <- map["results"]
-        perPage <- map["perPage"]
-        page <- map["page"]
-        totalEntries <- map["totalEntries"]
-    }
-    
-    var status: String?
-    var results: VenueResults?
-    var perPage: Int?
-    var page: Int?
-    var totalEntries:Int?
-}
 
-class venueArray: Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        venue <- map ["venue"]
-    }
-    
-    var venue: [VenueResults]?
-    
-    
-}
-
-class VenueResults:Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        lng <- map["lng"]
-        capacity <- map["capacity"]
-        zip <- map["zip"]
-        description <- map["description"]
-        street <- map["street"]
-        displayName <- map["displayName"]
-        webSite <- map["webSite"]
-        city <- map["city"]
-        uri <- map["uri"]
-        id <- map["id"]
-        metroArea <- map["metroArea"]
-        phone <- map["phone"]
-        lat <- map["lat"]
-        
-    }
-    
-    var lng:Double?
-    var capacity: Int?
-    var zip: String?
-    var description: String?
-    var street: String?
-    var displayName: String?
-    var webSite: String?
-    var city: CityDescription?
-    var uri: String?
-    var id: Int?
-    var metroArea: MetroAreaDescription?
-    var phone: String?
-    var lat: Double?
-}
-
-class CityDescription: Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        displayName <- map["displayName"]
-        uri <- map["uri"]
-        id <- map["id"]
-        country <- map["country"]
-    }
-    
-    var displayName: String?
-    var uri: String?
-    var id: Int?
-    var country: CountryDescription?
-    var state: State?
-    
-}
-
-class State: Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        state <- map["state"]
-    }
-    
-    
-    
-    var state: String?
-}
-
-
-class CountryDescription: Mappable {
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        displayName <- map["displayName"]
-    }
-    
-    var displayName: String?
-    
-}
-
-class MetroAreaDescription:Mappable {
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        displayName <- map["displayName"]
-        uri <- map["uri"]
-        id <- map["id"]
-        country <- map["country"]
-    }
-    
-    var displayName: String?
-    var uri: String?
-    var id: String?
-    var country: CountryDescription?
-    
-}
 
 
 

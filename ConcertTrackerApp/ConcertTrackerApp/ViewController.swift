@@ -15,6 +15,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
         try! RequestManager.shared.searchArtist(name: "Pink Floyd") { (artist) in
+            print()
         }
         
         try! RequestManager.shared.getDataWithCityName(name: "London")

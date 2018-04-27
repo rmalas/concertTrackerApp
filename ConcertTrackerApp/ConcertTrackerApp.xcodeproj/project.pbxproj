@@ -18,6 +18,7 @@
 		1E1748082088732200D6A6D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748072088732200D6A6D6 /* Assets.xcassets */; };
 		1E17480B2088732200D6A6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */; };
 		1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */; };
+		1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B3A3820935D38009CDBB4 /* TabBarController.swift */; };
 		1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B0142091C67D00C056CC /* RequestManager.swift */; };
 		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
 		1E4394A72091AD4200555804 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A62091AD4200555804 /* Venue.swift */; };
@@ -45,6 +46,7 @@
 		1E17480A2088732200D6A6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E17480C2088732200D6A6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistResponse.swift; sourceTree = "<group>"; };
+		1E2B3A3820935D38009CDBB4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1E39B0142091C67D00C056CC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		1E4394A62091AD4200555804 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1E050E192091EEB800823041 /* SearchViewController.swift */,
 				1E050E1D20930E4E00823041 /* RecommendedViewController.swift */,
 				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
+				1E2B3A3820935D38009CDBB4 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
 				1E4394A92091BDD100555804 /* Requests.swift in Sources */,
 				1E4394A72091AD4200555804 /* Venue.swift in Sources */,
+				1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */,
 				1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */,
 				1E050E1A2091EEB800823041 /* SearchViewController.swift in Sources */,
 				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,

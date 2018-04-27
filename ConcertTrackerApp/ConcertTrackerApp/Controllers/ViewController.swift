@@ -29,9 +29,17 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        try! RequestManager.shared.searchArtist(name: "Adele") { (artist) in
-//            print(artist[0].displayName, artist[0].onTourUntil)
-//        }
+       
+        navigationController?.navigationBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1)
+        
+        self.actorsTableView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        
+        let attributes: [NSAttributedStringKey:Any] = [NSAttributedStringKey.foregroundColor: UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1)]
+        
+        navigationController?.navigationBar.titleTextAttributes = attributes
+    
     }
     
     @objc func loadList() {
@@ -46,12 +54,19 @@ class ViewController: UIViewController{
 extension ViewController: SearchViewControllerDelegate {
     func searchTextReceived(searchText: String, onTour: String,artID: Int) {
         
-        var boolValue = dataArray.contains{ $0.name == searchText }
+        let contains = dataArray.contains{ $0.name == searchText }
         
-        if (!boolValue){
+        if (!contains){
         let actorsObject = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
             dataArray.append(actorsObject)
-            self.actorsTableView.reloadData()
+            let annimatedAtIndexPath = IndexPath(row: dataArray.count-1, section: 0)
+            DispatchQueue.main.async {
+                self.actorsTableView.beginUpdates()
+                self.actorsTableView.insertRows(at: [annimatedAtIndexPath], with: .automatic)
+                self.actorsTableView.endUpdates()
+            }
+            
+            //self.actorsTableView.reloadData()
         }
     }
 }
@@ -74,12 +89,23 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! CustomTableViewCell
         
-        cell.artistConcertPlace.text = "On tourd until ∙ \(String(describing: dataArray[indexPath.row].onTourUntil))" 
+        cell.blurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
+        cell.unBlurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
+        cell.artistConcertPlace.text = "Tour until∙\(String(describing: dataArray[indexPath.row].onTourUntil))"
         cell.artistNameLabel.text = dataArray[indexPath.row].name
-        cell.concertDateLabel.text = "Click for info about: \(dataArray[indexPath.row].artistID)"
+        cell.concertDateLabel.text = "Click for more info"
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        return nil
     }
 }
 

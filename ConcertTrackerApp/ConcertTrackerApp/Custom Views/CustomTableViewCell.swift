@@ -19,6 +19,8 @@ class CustomTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    @IBOutlet weak var unBlurredImage: UIImageView!
+    @IBOutlet weak var blurredImage: UIImageView!
     @IBOutlet weak var concertDateLabel: UILabel!
     @IBOutlet weak var artistConcertPlace: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!

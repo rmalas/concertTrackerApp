@@ -44,8 +44,8 @@ class ViewController: UIViewController{
 
 
 extension ViewController: SearchViewControllerDelegate {
-    func searchTextReceived(searchText: String, onTour: String) {
-            let actorsObject = Actors(name: searchText, onTourUntil: onTour)
+    func searchTextReceived(searchText: String, onTour: String,artID: Int) {
+        let actorsObject = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
             dataArray.append(actorsObject)
             self.actorsTableView.reloadData()
         
@@ -58,6 +58,10 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return 124
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -67,7 +71,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.artistConcertPlace.text = "On tourd until ∙ \(String(describing: dataArray[indexPath.row].onTourUntil))" 
         cell.artistNameLabel.text = dataArray[indexPath.row].name
-        cell.concertDateLabel.text = "Click for info about: "
+        cell.concertDateLabel.text = "Click for info about: \(dataArray[indexPath.row].artistID)"
         
         return cell
         

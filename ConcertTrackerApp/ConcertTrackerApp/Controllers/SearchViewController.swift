@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol SearchViewControllerDelegate: class {
-    func searchTextReceived(searchText : String,onTour: String)
+    func searchTextReceived(searchText : String,onTour: String,artID: Int)
 }
 
 class SearchViewController: UIViewController,UISearchBarDelegate {
@@ -42,7 +42,8 @@ class SearchViewController: UIViewController,UISearchBarDelegate {
         try! RequestManager.shared.searchArtist(name: printedText) { (artist) in
             guard let searchedValue = artist[0].displayName else { return }
             let searchedOnTour = artist[0].onTourUntil ?? "Already Finished"
-            self.searchDelegate?.searchTextReceived(searchText: searchedValue,onTour: searchedOnTour)
+            guard let artistID = artist[0].id else { return }
+            self.searchDelegate?.searchTextReceived(searchText: searchedValue,onTour: searchedOnTour,artID: artistID)
         }
         
         dismiss(animated: true, completion: nil)

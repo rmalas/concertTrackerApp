@@ -12,9 +12,11 @@ import Foundation
 class Actors {
     let name: String
     let onTourUntil: String
+    let artistID: Int
     
-    init(name: String,onTourUntil: String) {
+    init(name: String,onTourUntil: String,artistID: Int) {
         self.name = name
         self.onTourUntil = onTourUntil
+        self.artistID = artistID
     }
 }

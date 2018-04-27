@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ConcertTrackerApp/AppDelegate.swift"
+            timestampString = "546438942.775093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_CFAD694ACB9CEFF193EBB8CEB4AE3CB3_func0"
+                  moduleName = "ConcertTrackerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romanmalasnyak/Desktop/concertTrackerApplication/ConcertTrackerApp/ConcertTrackerApp/AppDelegate.swift"
+                  timestampString = "546520400.157907"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ConcertTrackerApp.realm.unsafeMutableAddressor : RealmSwift.Realm"
+                  moduleName = "ConcertTrackerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/romanmalasnyak/Desktop/concertTrackerApplication/ConcertTrackerApp/ConcertTrackerApp/AppDelegate.swift"
+                  timestampString = "546520400.162009"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

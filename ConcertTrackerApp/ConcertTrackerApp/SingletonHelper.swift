@@ -13,6 +13,6 @@ class Helper {
     
     private init() {  }
     
-    var someArtistsArray = [AnyObject]()
+    var someArtistsArray = [String]()
     var VenyeDetailsArray = [AnyObject]()
 }

@@ -45,10 +45,14 @@ class ViewController: UIViewController{
 
 extension ViewController: SearchViewControllerDelegate {
     func searchTextReceived(searchText: String, onTour: String,artID: Int) {
+        
+        var boolValue = dataArray.contains{ $0.name == searchText }
+        
+        if (!boolValue){
         let actorsObject = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
             dataArray.append(actorsObject)
             self.actorsTableView.reloadData()
-        
+        }
     }
 }
 
@@ -59,7 +63,8 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let destinationVC = ArtistDetailViewController()
+        navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

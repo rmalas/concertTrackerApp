@@ -108,6 +108,21 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-239.73013493253376"/>
         </scene>
+        <!--Artist Detail View Controller-->
+        <scene sceneID="Kgg-Wr-p7c">
+            <objects>
+                <viewController storyboardIdentifier="ArtistDetailViewController" id="Pb3-o3-8Sv" customClass="ArtistDetailViewController" customModule="ConcertTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KaW-3n-0ML">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="y37-zi-cuo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8d-G1-Db6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="325"/>
+        </scene>
         <!--Reccomedations-->
         <scene sceneID="fXy-mv-CrG">
             <objects>
@@ -155,6 +170,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qs9-BI-LS9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pp5-tO-oNF">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

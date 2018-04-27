@@ -24,6 +24,7 @@
 		1E4394A92091BDD100555804 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* Requests.swift */; };
 		1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */; };
 		1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */; };
+		1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */; };
 		1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */; };
 		1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */; };
 		1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5428A208F1BFE0058D5FF /* Favourites.swift */; };
@@ -50,6 +51,7 @@
 		1E4394A82091BDD100555804 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameResponse.swift; sourceTree = "<group>"; };
 		1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueWithCityNameResponse.swift; sourceTree = "<group>"; };
+		1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
 		1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonHelper.swift; sourceTree = "<group>"; };
 		1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequest.swift; sourceTree = "<group>"; };
 		1EF5428A208F1BFE0058D5FF /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				1E1748022088732200D6A6D6 /* ViewController.swift */,
 				1E050E192091EEB800823041 /* SearchViewController.swift */,
 				1E050E1D20930E4E00823041 /* RecommendedViewController.swift */,
+				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
 				1E4394A92091BDD100555804 /* Requests.swift in Sources */,
 				1E4394A72091AD4200555804 /* Venue.swift in Sources */,
+				1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */,
 				1E050E1A2091EEB800823041 /* SearchViewController.swift in Sources */,
 				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,
 				1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */,

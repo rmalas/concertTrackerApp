@@ -26,12 +26,12 @@
                   moduleName = "ConcertTrackerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/romanmalasnyak/Desktop/concertTrackerApplication/ConcertTrackerApp/ConcertTrackerApp/AppDelegate.swift"
-                  timestampString = "546522688.8783129"
+                  timestampString = "546524953.995315"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
                   endingLineNumber = "12"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "17">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "ConcertTrackerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/romanmalasnyak/Desktop/concertTrackerApplication/ConcertTrackerApp/ConcertTrackerApp/AppDelegate.swift"
-                  timestampString = "546522688.880542"
+                  timestampString = "546524953.998296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
                   endingLineNumber = "12"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
          </BreakpointContent>

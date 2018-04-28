@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController{
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        additionalDesignSetUps()
+        
+    }
     
     @IBOutlet weak var actorsTableView: UITableView!
     
@@ -26,24 +31,19 @@ class ViewController: UIViewController{
         
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        navigationController?.navigationBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-        navigationController?.navigationBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1)
-        
-        self.actorsTableView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-        
-        let attributes: [NSAttributedStringKey:Any] = [NSAttributedStringKey.foregroundColor: UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1)]
-        
-        navigationController?.navigationBar.titleTextAttributes = attributes
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
-    @objc func loadList() {
-        self.actorsTableView.reloadData()
+    func additionalDesignSetUps() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1) // navigationBar color setUp
+        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1) // navigationBarItems color setUp
+        
+        self.actorsTableView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+
+        let attributes: [NSAttributedStringKey:Any] = [NSAttributedStringKey.foregroundColor: UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1)]
+        navigationController?.navigationBar.titleTextAttributes = attributes // Navigation title color setUp with attributes
     }
     
 }
@@ -78,8 +78,12 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = ArtistDetailViewController()
-        navigationController?.pushViewController(destinationVC, animated: true)
+//        let destinationVC = ArtistDetailViewController()
+//        navigationController?.pushViewController(destinationVC, animated: true)
+        
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "ArtistDetailViewController") as! ArtistDetailViewController
+        secondVC.counter = dataArray[indexPath.row].artistID
+        navigationController?.pushViewController(secondVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,7 +97,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         cell.unBlurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
         cell.artistConcertPlace.text = "Tour until∙\(String(describing: dataArray[indexPath.row].onTourUntil))"
         cell.artistNameLabel.text = dataArray[indexPath.row].name
-        cell.concertDateLabel.text = "Click for more info"
+        cell.concertDateLabel.text = "Click for more info \(dataArray[indexPath.row].artistID)"
         
         return cell
         
@@ -103,8 +107,8 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return 0.00001
     }
     
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
         return nil
     }
 }

@@ -13,8 +13,9 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalDesignSetUps()
-        
     }
+    
+   
     
     @IBOutlet weak var actorsTableView: UITableView!
     
@@ -31,9 +32,6 @@ class ViewController: UIViewController{
         
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     func additionalDesignSetUps() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1) // navigationBar color setUp
@@ -97,7 +95,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         cell.unBlurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
         cell.artistConcertPlace.text = "Tour until∙\(String(describing: dataArray[indexPath.row].onTourUntil))"
         cell.artistNameLabel.text = dataArray[indexPath.row].name
-        cell.concertDateLabel.text = "Click for more info \(dataArray[indexPath.row].artistID)"
+        cell.concertDateLabel.text = "Click for more info"
         
         return cell
         

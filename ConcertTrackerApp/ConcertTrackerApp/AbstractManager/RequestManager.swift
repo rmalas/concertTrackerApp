@@ -36,7 +36,7 @@ class RequestManager {
         })
     }
     
-    func getUpcommingEvents(artistID id:Int, completion: @escaping (_ concert: [Event]) -> Void) {
+    func getUpcommingEvents(artistID id:Int, completion: @escaping (_ concert: Concert_Results) -> Void) {
         guard let url = URL(string: "http://api.songkick.com/api/3.0/artists/\(id)/calendar.json?apikey=\(Constants.API.key)&per_page=50") else { return }
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, error, _) in
@@ -44,10 +44,14 @@ class RequestManager {
             do {
                 let users = try JSONDecoder().decode(Conecert_ResultsPage.self, from: data)
                 guard let data = users.resultsPage.results.event else { return }
+                let retData = users.resultsPage
                 for item in data {
                     print(item.displayName ?? "finished","at",item.location?.city ?? "finished")
                 }
-                completion(data)
+                DispatchQueue.main.async {
+                    completion(retData)
+                }
+                
             } catch {
                 print(error)
             }

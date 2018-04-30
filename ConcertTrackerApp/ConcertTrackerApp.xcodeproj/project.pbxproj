@@ -22,6 +22,8 @@
 		1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B0142091C67D00C056CC /* RequestManager.swift */; };
 		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
 		1E4394A92091BDD100555804 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* Requests.swift */; };
+		1E6191392096F764006A3518 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6191382096F764006A3518 /* NavViewController.swift */; };
+		1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */; };
 		1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */; };
 		1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */; };
 		1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9218E2209487630067C264 /* getConcertDetails.swift */; };
@@ -50,6 +52,8 @@
 		1E39B0142091C67D00C056CC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		1E4394A82091BDD100555804 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		1E6191382096F764006A3518 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
+		1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameResponse.swift; sourceTree = "<group>"; };
 		1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueWithCityNameResponse.swift; sourceTree = "<group>"; };
 		1E9218E2209487630067C264 /* getConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getConcertDetails.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 				1E050E1D20930E4E00823041 /* RecommendedViewController.swift */,
 				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
 				1E2B3A3820935D38009CDBB4 /* TabBarController.swift */,
+				1E6191382096F764006A3518 /* NavViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				1E050E162091DF5D00823041 /* CustomTableViewCell.swift */,
+				1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -309,8 +315,10 @@
 				1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */,
 				1E4394A52090D5CD00555804 /* Artist.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
+				1E6191392096F764006A3518 /* NavViewController.swift in Sources */,
 				1E050E21209329AF00823041 /* Actor.swift in Sources */,
 				1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */,
+				1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */,
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
 				1E4394A92091BDD100555804 /* Requests.swift in Sources */,
 				1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */,

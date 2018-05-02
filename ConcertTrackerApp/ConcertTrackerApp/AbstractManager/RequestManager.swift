@@ -36,6 +36,23 @@ class RequestManager {
         })
     }
     
+    func getEventDetails(eventID id: Int, completion: @escaping (_ eventDetails: EventDetails_EventInfo) -> Void) {
+        guard let url = URL(string: "http://api.songkick.com/api/3.0/events/\(id).json?apikey=\(Constants.API.key)") else { return }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, error, _) in
+            guard let data = data else { return }
+            do {
+                let users = try JSONDecoder().decode(EventDetails_ResultsPage.self, from: data)
+                guard let info = users.resultsPage.results?.event else { return }
+                DispatchQueue.main.async {
+                   completion(info)
+                }
+            } catch { print(error) }
+        }
+        task.resume()
+    }
+    
     func getUpcommingEvents(artistID id:Int, completion: @escaping (_ concert: Concert_Results) -> Void) {
         guard let url = URL(string: "http://api.songkick.com/api/3.0/artists/\(id)/calendar.json?apikey=\(Constants.API.key)&per_page=50") else { return }
         let session = URLSession.shared

@@ -24,6 +24,10 @@ struct Concert_DetailResults:Decodable {
     let event: [Event]?
 }
 
+struct Performance:Decodable {
+    let displayName: String?
+}
+
 struct Event: Decodable {
     let type: String?
     let popularity: Double?
@@ -31,6 +35,7 @@ struct Event: Decodable {
     let start: Start?
     let location: Location?
     let id: Int?
+    let performance: [Performance]?
 }
 
 struct Start: Decodable {

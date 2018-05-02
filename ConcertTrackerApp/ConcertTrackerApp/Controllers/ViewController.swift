@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+
+
+class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalDesignSetUps()
+        
+        actorsTableView.contentOffset.y = searchBar.frame.height
     }
     
    
@@ -22,15 +26,16 @@ class ViewController: UIViewController{
     var dataArray: [Actors] = []
     
     @IBAction func searchButtonPressed(_ sender: UIBarButtonItem) {
+        //actorsTableView.setContentOffset(CGPoint.zero, animated: true)
+        
         let searchViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         searchViewController.searchDelegate = self
         self.present(searchViewController, animated: true, completion: nil)
     }
     
-    @IBAction func printArtistsArray(_ sender: UIBarButtonItem) {
-        //print(Helper.shared.someArtistsArray)
-        
-    }
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     
     func additionalDesignSetUps() {
@@ -63,7 +68,6 @@ extension ViewController: SearchViewControllerDelegate {
                 self.actorsTableView.insertRows(at: [annimatedAtIndexPath], with: .automatic)
                 self.actorsTableView.endUpdates()
             }
-            
             //self.actorsTableView.reloadData()
         }
     }

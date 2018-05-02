@@ -37,6 +37,7 @@ class GetVenueByNameRequest: AbstractRequest {
     }
 }
 
+
 class GetArtistByNameRequest: AbstractRequest {
     var artistQuery: String?
     

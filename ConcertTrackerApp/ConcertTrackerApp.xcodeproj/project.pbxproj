@@ -19,6 +19,9 @@
 		1E17480B2088732200D6A6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */; };
 		1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */; };
 		1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B3A3820935D38009CDBB4 /* TabBarController.swift */; };
+		1E31FFF2209726D9007B8896 /* ConcertDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */; };
+		1E37C70520988D1000D457AE /* EventDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */; };
+		1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */; };
 		1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B0142091C67D00C056CC /* RequestManager.swift */; };
 		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
 		1E4394A92091BDD100555804 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* Requests.swift */; };
@@ -28,6 +31,7 @@
 		1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */; };
 		1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9218E2209487630067C264 /* getConcertDetails.swift */; };
 		1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */; };
+		1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD88592099CE5C00FB3E58 /* MapViewController.swift */; };
 		1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */; };
 		1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */; };
 		1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5428A208F1BFE0058D5FF /* Favourites.swift */; };
@@ -49,6 +53,9 @@
 		1E17480C2088732200D6A6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistResponse.swift; sourceTree = "<group>"; };
 		1E2B3A3820935D38009CDBB4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailsViewController.swift; sourceTree = "<group>"; };
+		1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsResponse.swift; sourceTree = "<group>"; };
+		1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		1E39B0142091C67D00C056CC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		1E4394A82091BDD100555804 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
@@ -58,6 +65,7 @@
 		1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueWithCityNameResponse.swift; sourceTree = "<group>"; };
 		1E9218E2209487630067C264 /* getConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getConcertDetails.swift; sourceTree = "<group>"; };
 		1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
+		1EAD88592099CE5C00FB3E58 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonHelper.swift; sourceTree = "<group>"; };
 		1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequest.swift; sourceTree = "<group>"; };
 		1EF5428A208F1BFE0058D5FF /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
 				1E2B3A3820935D38009CDBB4 /* TabBarController.swift */,
 				1E6191382096F764006A3518 /* NavViewController.swift */,
+				1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */,
+				1EAD88592099CE5C00FB3E58 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +104,7 @@
 		1E050E1F2093298A00823041 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */,
 				1E050E20209329AF00823041 /* Actor.swift */,
 			);
 			path = Models;
@@ -126,13 +137,11 @@
 				1E174812208874E200D6A6D6 /* ApiResponsesAndRequests */,
 				1ED1FBF12089D047009D5E39 /* AbstractManager */,
 				1E050E182091EE9300823041 /* Controllers */,
-				1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */,
 				1E1748042088732200D6A6D6 /* Main.storyboard */,
 				1E1748002088732200D6A6D6 /* AppDelegate.swift */,
 				1E1748072088732200D6A6D6 /* Assets.xcassets */,
 				1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */,
 				1E17480C2088732200D6A6D6 /* Info.plist */,
-				1E050E1B2091FF7100823041 /* DatabaseManager.swift */,
 			);
 			path = ConcertTrackerApp;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 				1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */,
 				1E4394A42090D5CD00555804 /* Artist.swift */,
 				1E9218E2209487630067C264 /* getConcertDetails.swift */,
+				1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */,
 			);
 			path = ApiResponsesAndRequests;
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 			children = (
 				1E050E162091DF5D00823041 /* CustomTableViewCell.swift */,
 				1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */,
+				1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -171,6 +182,7 @@
 		1EF54289208F1BDE0058D5FF /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
+				1E050E1B2091FF7100823041 /* DatabaseManager.swift */,
 				1EF5428A208F1BFE0058D5FF /* Favourites.swift */,
 			);
 			path = RealmModels;
@@ -310,12 +322,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */,
+				1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */,
 				1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */,
 				1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */,
 				1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */,
 				1E4394A52090D5CD00555804 /* Artist.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
 				1E6191392096F764006A3518 /* NavViewController.swift in Sources */,
+				1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */,
 				1E050E21209329AF00823041 /* Actor.swift in Sources */,
 				1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */,
 				1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */,
@@ -327,6 +341,8 @@
 				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,
 				1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */,
 				1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */,
+				1E37C70520988D1000D457AE /* EventDetailsResponse.swift in Sources */,
+				1E31FFF2209726D9007B8896 /* ConcertDetailsViewController.swift in Sources */,
 				1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */,
 				1E1748012088732200D6A6D6 /* AppDelegate.swift in Sources */,
 				1E050E172091DF5D00823041 /* CustomTableViewCell.swift in Sources */,

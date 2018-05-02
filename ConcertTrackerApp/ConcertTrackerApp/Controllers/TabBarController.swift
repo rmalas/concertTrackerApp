@@ -20,6 +20,10 @@ class TabBarController: UITabBarController {
         tabBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1) // bottom tabBar items color setUp
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
 }
 
 

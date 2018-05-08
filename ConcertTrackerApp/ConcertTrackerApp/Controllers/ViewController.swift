@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
+    
+    var notificationToken: NotificationToken? = nil
     
     @IBOutlet weak var artistSearchBar: UISearchBar!
     @IBOutlet weak var actorsTableView: UITableView!
@@ -18,18 +21,60 @@ class ViewController: UIViewController {
         searchVC.searchDelegate = self
         present(searchVC, animated: true, completion: nil)
     }
+    
 
     var fileterdDataArray: [Actors] = []
     
     var dataArray = DatabaseManager.shared.realm.objects(Actors.self)
     
     let searchController = UISearchController(searchResultsController: nil)
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalDesignSetUps()
         setUpFilterBar()
+        initNotificationToken()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if shouldScrollToBottom {
+            self.scrollToBottom()
+        }
+    }
+    var shouldScrollToBottom = false
+    
+    func initNotificationToken() {
+        notificationToken = dataArray.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let `self` = self else { return }
+            switch changes {
+            case .initial:
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the UITableView
+                self.actorsTableView.beginUpdates()
+                self.actorsTableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                self.actorsTableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                self.actorsTableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                self.actorsTableView.endUpdates()
+                if insertions.count > 0 {
+                    self.shouldScrollToBottom = true
+                }
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                fatalError("\(error)")
+            }
+
+        }
+    }
+    
+    func scrollToBottom() {
+        let numberOfRows = actorsTableView.numberOfRows(inSection: 0)
+        let path = IndexPath(row: numberOfRows - 1, section: 0)
+        if numberOfRows > 0 {
+            self.actorsTableView.scrollToRow(at: path, at: .bottom, animated: true)
+        }
     }
     
     func setUpFilterBar() {
@@ -56,9 +101,21 @@ class ViewController: UIViewController {
         actorsTableView.reloadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.actorsTableView.reloadData()
+    }
     
+    func deleteFromTableView(index: IndexPath) {
+        let actor = dataArray[index.row]
+        actor.deleteFromRealm()
+        self.actorsTableView.beginUpdates()
+        self.actorsTableView.deleteRows(at: [index],with: .automatic)
+        self.actorsTableView.endUpdates()
+    }
     
     func additionalDesignSetUps() {
+        searchController.searchBar.barStyle = .black
         navigationController?.navigationBar.barTintColor = SetUpColors.whiteColor // navigationBar color setUp
         view.backgroundColor = SetUpColors.whiteColor
         navigationController?.navigationBar.tintColor = SetUpColors.redColor // navigationBarItems color setUp
@@ -79,6 +136,11 @@ class ViewController: UIViewController {
             destinationViewController.counter = dataArray[cellIndexPath.row].artistID
         }
     }
+    
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
 }
 
 
@@ -90,46 +152,31 @@ extension ViewController: UISearchResultsUpdating {
 }
 
 
-extension ViewController: SearchViewControllerDelegate {
-    func searchTextReceived(searchText: String, onTour: String,artID: Int) {
-        
-        let contains = dataArray.contains{ $0.name == searchText }
-        
-        if (!contains){
-        let _ = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
-            let annimatedAtIndexPath = IndexPath(row: dataArray.count-1, section: 0)
-            DispatchQueue.main.async {
-                self.actorsTableView.beginUpdates()
-                self.actorsTableView.insertRows(at: [annimatedAtIndexPath], with: .automatic)
-                self.actorsTableView.endUpdates()
-            }
+extension ViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            deleteFromTableView(index: indexPath)
         }
     }
-}
-
-extension ViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let printedText = searchBar.text else { return }
-        try! RequestManager.shared.searchArtist(name: printedText, completion: {  (artist) in
-            guard let searchedValue = artist[0].displayName else { return }
-            let searchedOnTour = artist[0].onTourUntil ?? "Already Finished"
-            guard let artistID = artist[0].id else { return }
-            self.searchTextReceived(searchText: searchedValue,onTour: searchedOnTour,artID: artistID)
-        })
-        self.actorsTableView.contentOffset.y = searchBar.frame.height
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-}
-
-
-extension ViewController: UITableViewDelegate,UITableViewDataSource {
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
             return fileterdDataArray.count
         }
         return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundView = UIView()
+        
+        cell.backgroundView?.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

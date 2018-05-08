@@ -33,5 +33,17 @@ extension Object {
             print(error)
         }
     }
+    
+    func deleteFromRealm() {
+        do {
+            try DatabaseManager.shared.execute({ (realm) in
+                try realm.write {
+                    realm.delete(self)
+                }
+            })
+        } catch {
+            print(123)
+        }
+    }
 }
 

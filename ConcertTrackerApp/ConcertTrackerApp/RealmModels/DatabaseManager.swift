@@ -17,6 +17,8 @@ class DatabaseManager {
     func execute(_ completion: (_ realmObject: Realm) throws -> Void) throws {
         try completion(realm)
     }
+    
+    
 
     private func configuraRealm() {
         let config = Realm.Configuration(

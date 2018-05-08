@@ -25,7 +25,7 @@
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="3" minY="0.0" maxX="3" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="121" id="Z39-Hd-ReH" customClass="CustomTableViewCell" customModule="ConcertTrackerApp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="121" id="Z39-Hd-ReH" customClass="CustomTableViewCell" customModule="ConcertTrackerApp">
                                         <rect key="frame" x="0.0" y="28" width="375" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z39-Hd-ReH" id="qGg-Eu-7Yj">
@@ -83,6 +83,7 @@
                                                     <blurEffect style="dark"/>
                                                 </visualEffectView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="E6E-ij-JAt" firstAttribute="leading" secondItem="qGg-Eu-7Yj" secondAttribute="leading" id="3Ub-OK-TMj"/>
                                                 <constraint firstItem="uFM-0f-eB8" firstAttribute="leading" secondItem="qGg-Eu-7Yj" secondAttribute="leading" id="5Ac-3i-5BB"/>
@@ -97,6 +98,7 @@
                                                 <constraint firstItem="E6E-ij-JAt" firstAttribute="top" secondItem="qGg-Eu-7Yj" secondAttribute="top" id="rdq-I5-581"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="artistConcertPlace" destination="prQ-Vm-kS0" id="kqa-ti-GYu"/>
                                             <outlet property="artistNameLabel" destination="PPj-Rw-Vvg" id="xlS-th-2Wh"/>
@@ -154,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" id="w1k-BF-hBe" customClass="ArtistDetailTableViewCell" customModule="ConcertTrackerApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailCell" id="w1k-BF-hBe" customClass="ArtistDetailTableViewCell" customModule="ConcertTrackerApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w1k-BF-hBe" id="yEp-eT-NHb">
@@ -455,6 +457,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="f9z-XW-9rh" kind="show" identifier="artistProfile" id="xu3-4h-r6O"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -484,6 +489,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7J-xr-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="565.60000000000002" y="-871.21439280359823"/>
+        </scene>
+        <!--Artist Profile View Controller-->
+        <scene sceneID="OMR-f6-QoJ">
+            <objects>
+                <viewController id="f9z-XW-9rh" customClass="ArtistProfileViewController" customModule="ConcertTrackerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I3F-aF-xuF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUB-lf-oTW">
+                                <rect key="frame" x="199" y="362" width="160" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add to favourites">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonClicked:" destination="f9z-XW-9rh" eventType="touchUpInside" id="Tqj-h0-4jX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWc-GQ-vw6">
+                                <rect key="frame" x="16" y="361" width="160" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add to favourites">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToFavouritesButtonClicked:" destination="f9z-XW-9rh" eventType="touchUpInside" id="UEb-SO-lOS"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbo-mo-NCi">
+                                <rect key="frame" x="51" y="58" width="272" height="272"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="a0Z-1l-giW"/>
+                    </view>
+                    <connections>
+                        <outlet property="addToFavouritesButton" destination="jWc-GQ-vw6" id="zw7-E8-cCG"/>
+                        <outlet property="artistProfileImage" destination="Dbo-mo-NCi" id="lxb-tv-qOW"/>
+                        <outlet property="dissmissButton" destination="RUB-lf-oTW" id="QZj-uy-9mO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTz-xf-NWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440.8" y="-891.00449775112452"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FzX-uF-V4o">

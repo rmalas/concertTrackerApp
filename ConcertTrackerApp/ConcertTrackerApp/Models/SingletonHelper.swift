@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Helper {
-    static let shared = Helper()
-    
-    private init() {  }
-    
-    var someArtistsArray = [String]()
-    var VenyeDetailsArray = [AnyObject]()
-}
+//class Helper {
+//    static let shared = Helper()
+//    
+//    private init() {  }
+//    
+//    var someArtistsArray = [String]()
+//    var VenyeDetailsArray = [AnyObject]()
+//}

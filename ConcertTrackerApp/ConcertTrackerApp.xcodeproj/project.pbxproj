@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E050E172091DF5D00823041 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E162091DF5D00823041 /* CustomTableViewCell.swift */; };
-		1E050E1A2091EEB800823041 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E192091EEB800823041 /* SearchViewController.swift */; };
+		1E050E1A2091EEB800823041 /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E192091EEB800823041 /* SearchProtocol.swift */; };
 		1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1B2091FF7100823041 /* DatabaseManager.swift */; };
 		1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1D20930E4E00823041 /* RecommendedViewController.swift */; };
 		1E050E21209329AF00823041 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E20209329AF00823041 /* Actor.swift */; };
@@ -24,11 +24,16 @@
 		1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */; };
 		1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B0142091C67D00C056CC /* RequestManager.swift */; };
 		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
-		1E4394A92091BDD100555804 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* Requests.swift */; };
+		1E4394A92091BDD100555804 /* GetEventById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* GetEventById.swift */; };
 		1E6191392096F764006A3518 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6191382096F764006A3518 /* NavViewController.swift */; };
 		1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */; };
 		1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */; };
 		1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */; };
+		1E8BB37C209C382B00078118 /* designSetUps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB37B209C382B00078118 /* designSetUps.swift */; };
+		1E8BB380209C498800078118 /* GetVenueByCityNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB37F209C498800078118 /* GetVenueByCityNameRequest.swift */; };
+		1E8BB383209C49F300078118 /* GetVenueByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */; };
+		1E8BB385209C4A6000078118 /* GetArtistByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */; };
+		1E8BB38720A02E9E00078118 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB38620A02E9E00078118 /* SearchViewController.swift */; };
 		1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9218E2209487630067C264 /* getConcertDetails.swift */; };
 		1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */; };
 		1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD88592099CE5C00FB3E58 /* MapViewController.swift */; };
@@ -40,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1E050E162091DF5D00823041 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		1E050E192091EEB800823041 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1E050E192091EEB800823041 /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		1E050E1B2091FF7100823041 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1E050E1D20930E4E00823041 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
 		1E050E20209329AF00823041 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
@@ -58,11 +63,16 @@
 		1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		1E39B0142091C67D00C056CC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		1E4394A82091BDD100555804 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
+		1E4394A82091BDD100555804 /* GetEventById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventById.swift; sourceTree = "<group>"; };
 		1E6191382096F764006A3518 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameResponse.swift; sourceTree = "<group>"; };
 		1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueWithCityNameResponse.swift; sourceTree = "<group>"; };
+		1E8BB37B209C382B00078118 /* designSetUps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = designSetUps.swift; sourceTree = "<group>"; };
+		1E8BB37F209C498800078118 /* GetVenueByCityNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByCityNameRequest.swift; sourceTree = "<group>"; };
+		1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameRequest.swift; sourceTree = "<group>"; };
+		1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistByNameRequest.swift; sourceTree = "<group>"; };
+		1E8BB38620A02E9E00078118 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1E9218E2209487630067C264 /* getConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getConcertDetails.swift; sourceTree = "<group>"; };
 		1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
 		1EAD88592099CE5C00FB3E58 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -90,13 +100,13 @@
 			isa = PBXGroup;
 			children = (
 				1E1748022088732200D6A6D6 /* ViewController.swift */,
-				1E050E192091EEB800823041 /* SearchViewController.swift */,
-				1E050E1D20930E4E00823041 /* RecommendedViewController.swift */,
 				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
 				1E2B3A3820935D38009CDBB4 /* TabBarController.swift */,
 				1E6191382096F764006A3518 /* NavViewController.swift */,
 				1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */,
 				1EAD88592099CE5C00FB3E58 /* MapViewController.swift */,
+				1E050E1D20930E4E00823041 /* RecommendedViewController.swift */,
+				1E8BB38620A02E9E00078118 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */,
+				1E050E192091EEB800823041 /* SearchProtocol.swift */,
 				1E050E20209329AF00823041 /* Actor.swift */,
 			);
 			path = Models;
@@ -131,6 +142,7 @@
 		1E1747FF2088732200D6A6D6 /* ConcertTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E8BB37D209C3C9200078118 /* SupportingFiles */,
 				1E050E1F2093298A00823041 /* Models */,
 				1EF54289208F1BDE0058D5FF /* RealmModels */,
 				1E1748172088964400D6A6D6 /* Custom Views */,
@@ -138,9 +150,7 @@
 				1ED1FBF12089D047009D5E39 /* AbstractManager */,
 				1E050E182091EE9300823041 /* Controllers */,
 				1E1748042088732200D6A6D6 /* Main.storyboard */,
-				1E1748002088732200D6A6D6 /* AppDelegate.swift */,
 				1E1748072088732200D6A6D6 /* Assets.xcassets */,
-				1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */,
 				1E17480C2088732200D6A6D6 /* Info.plist */,
 			);
 			path = ConcertTrackerApp;
@@ -149,13 +159,13 @@
 		1E174812208874E200D6A6D6 /* ApiResponsesAndRequests */ = {
 			isa = PBXGroup;
 			children = (
-				1E4394A82091BDD100555804 /* Requests.swift */,
 				1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */,
 				1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */,
 				1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */,
 				1E4394A42090D5CD00555804 /* Artist.swift */,
 				1E9218E2209487630067C264 /* getConcertDetails.swift */,
 				1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */,
+				1E8BB381209C498C00078118 /* Requests */,
 			);
 			path = ApiResponsesAndRequests;
 			sourceTree = "<group>";
@@ -168,6 +178,27 @@
 				1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		1E8BB37D209C3C9200078118 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */,
+				1E1748002088732200D6A6D6 /* AppDelegate.swift */,
+				1E8BB37B209C382B00078118 /* designSetUps.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		1E8BB381209C498C00078118 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				1E8BB37F209C498800078118 /* GetVenueByCityNameRequest.swift */,
+				1E4394A82091BDD100555804 /* GetEventById.swift */,
+				1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */,
+				1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		1ED1FBF12089D047009D5E39 /* AbstractManager */ = {
@@ -321,23 +352,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8BB38720A02E9E00078118 /* SearchViewController.swift in Sources */,
 				1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */,
 				1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */,
 				1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */,
 				1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */,
 				1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */,
+				1E8BB385209C4A6000078118 /* GetArtistByNameRequest.swift in Sources */,
 				1E4394A52090D5CD00555804 /* Artist.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
 				1E6191392096F764006A3518 /* NavViewController.swift in Sources */,
 				1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */,
+				1E8BB380209C498800078118 /* GetVenueByCityNameRequest.swift in Sources */,
 				1E050E21209329AF00823041 /* Actor.swift in Sources */,
 				1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */,
+				1E8BB37C209C382B00078118 /* designSetUps.swift in Sources */,
 				1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */,
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
-				1E4394A92091BDD100555804 /* Requests.swift in Sources */,
+				1E4394A92091BDD100555804 /* GetEventById.swift in Sources */,
 				1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */,
 				1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */,
-				1E050E1A2091EEB800823041 /* SearchViewController.swift in Sources */,
+				1E8BB383209C49F300078118 /* GetVenueByNameRequest.swift in Sources */,
+				1E050E1A2091EEB800823041 /* SearchProtocol.swift in Sources */,
 				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,
 				1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */,
 				1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */,

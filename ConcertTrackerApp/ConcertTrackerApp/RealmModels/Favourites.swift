@@ -12,17 +12,20 @@ import RealmSwift
 class Favourites: Object {
     @objc dynamic var name: String? = nil
     @objc dynamic var id: String? = nil
+    @objc dynamic var onTourUntil: String? = nil
 }
 
 
 
-extension Favourites {
+
+
+extension Object {
     func writeToRealm() {
-        
         do {
             try DatabaseManager.shared.execute { (realm) in
+                print(realm.configuration.fileURL)
                 try realm.write {
-                    realm.add(self)
+                    realm.add(self, update: true)
                 }
             }
         }

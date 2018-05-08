@@ -36,6 +36,12 @@ class RequestManager {
         })
     }
     
+    func getEventById(id artistID: String) {
+        let request = GetArtistByNameRequest()
+        guard let url = URL(string: request.requestUrl) else { return }
+        print(url)
+    }
+    
     func getEventDetails(eventID id: Int, completion: @escaping (_ eventDetails: EventDetails_EventInfo) -> Void) {
         guard let url = URL(string: "http://api.songkick.com/api/3.0/events/\(id).json?apikey=\(Constants.API.key)") else { return }
         

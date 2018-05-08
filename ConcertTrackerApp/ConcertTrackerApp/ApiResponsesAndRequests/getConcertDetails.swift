@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Conecert_ResultsPage:Decodable {
     let resultsPage: Concert_Results
@@ -43,7 +44,30 @@ struct Start: Decodable {
     let date: String?
 }
 struct Location: Decodable {
-    let city: String?
-    let lat: Double?
-    let lng: Double?
+    var city: String?
+    var coordinates: CLLocationCoordinate2D?
+    enum CodingKeys: String,CodingKey {
+        case city
+        case lat
+        case lng
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let city = try container.decode(String.self, forKey: .city)
+        let lng = try container.decode(Double.self, forKey: .lng)
+        let lat = try container.decode(Double.self, forKey: .lat)
+        let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        self.init(city: city, coordinate: coordinates)
+    }
+    init() {}
+    init(city:String?, coordinate: CLLocationCoordinate2D) {
+        self.init()
+        self.city = city
+        coordinates = coordinate
+    }
+    
+    
+//    let lat: Double?
+//    let lng: Double?
 }

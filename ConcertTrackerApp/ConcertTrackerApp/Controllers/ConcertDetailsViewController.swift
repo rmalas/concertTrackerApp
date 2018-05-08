@@ -8,6 +8,11 @@
 
 import UIKit
 import MapKit
+import EventKit
+
+protocol ConcertDetailsDelegate: class {
+    func goingButtonPressed()
+}
 
 class ConcertDetailsViewController: UIViewController {
     
@@ -16,12 +21,23 @@ class ConcertDetailsViewController: UIViewController {
     var coords: CLLocationCoordinate2D?
     var event: EventDetails_EventInfo?
     
-    @IBOutlet weak var concertTableView: UITableView!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var eventCityLabel: UILabel!
+    @IBOutlet weak var goingButton: UIButton!
+    @IBOutlet weak var detailInfoLabel: UILabel!
+    @IBOutlet weak var concertStartTimeLabel: UILabel!
+    @IBOutlet weak var ticketsPriceLabel: UILabel!
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
         let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        print(coords?.latitude,coords?.longitude)
         mapVC.concertCoordinates = coords
         navigationController?.pushViewController(mapVC, animated: true)
+    }
+    @IBAction func handleGoing(_ sender: UIButton) {
+        createCalendarEvent()
     }
     
     @IBOutlet weak var concertMapView: MKMapView!
@@ -32,65 +48,95 @@ class ConcertDetailsViewController: UIViewController {
         super.viewDidLoad()
         RequestManager.shared.getEventDetails(eventID: upCommingID) { (event) in
             print(event.location?.city ?? "no city yet")
-            guard let parsedLatitude = event.location?.lat, let parsedLongitude = event.location?.lng else { return }
             DispatchQueue.main.async {
-                self.self.coords = CLLocationCoordinate2D(latitude: parsedLatitude, longitude: parsedLongitude)
-                self.setUpMap(coords: self.coords!)
+                
                 self.event = event
-                self.concertTableView.reloadData()
+                self.artistNameLabel.text = self.upcommingName
+                self.eventCityLabel.text = event.location?.city
+                self.detailInfoLabel.text = event.displayName
+                self.coords = event.location?.coordinates
+                self.concertStartTimeLabel.text = "Event starts at" + (event.start?.time ?? "Time is not set up yet!") 
+                self.setUpMap()
             }
         }
-        self.concertTableView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-        navigationItem.title = "Concert info"
+        profileImage.image = UIImage(named: upcommingName) ?? UIImage(named: "Rita Ora")
+        profileImage.layer.cornerRadius = profileImage.frame.width/2
+        profileImage.clipsToBounds = true
         setUpBackGround()
     }
     
     func setUpBackGround() {
-        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        view.backgroundColor = SetUpColors.whiteColor
+        title = "Concert info"
     }
     
-    func setUpMap(coords: CLLocationCoordinate2D) {
+    func setUpMap() {
+        guard let event = event, let location = event.location?.coordinates else {
+            return
+        }
         let annotationPin = MKPointAnnotation()
-        annotationPin.coordinate.latitude = coords.latitude
-        annotationPin.coordinate.longitude = coords.longitude
+        annotationPin.coordinate = location
         var region = MKCoordinateRegion()
-            region.center.latitude = coords.latitude
-            region.center.longitude = coords.longitude
-            region.span.latitudeDelta = 0.05
-            region.span.longitudeDelta = 0.05
+        region.center = location
+        region.span.latitudeDelta = 0.05
+        region.span.longitudeDelta = 0.05
         concertMapView.addAnnotation(annotationPin)
         concertMapView.setRegion(region, animated: true)
     }
-
+    
+    
+    
+    func showAlert(text: String) {
+        let alert = UIAlertController(title: "Event", message: text, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func createCalendarEvent() {
+        let conertDisplayName = event?.displayName
+        if let time = event?.start?.time,let date = event?.start?.date {
+            let dateAndTime = date + time
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-ddHH:mm:ss"
+            let eventTimeInUTC = dateFormatter.date(from: dateAndTime)
+            let calendarEvent = EKEventStore()
+            calendarEvent.requestAccess(to: .event) { (permissionGranted, error) in
+                if permissionGranted && error == nil  {
+                    let event: EKEvent = EKEvent(eventStore: calendarEvent)
+                    event.startDate = eventTimeInUTC
+                    event.title = conertDisplayName
+                    event.endDate = eventTimeInUTC?.addingTimeInterval(3600*3)
+                    event.calendar = calendarEvent.defaultCalendarForNewEvents
+                    self.showAlert(text: "is added to your iphone calendar")
+                    do {
+                        try calendarEvent.save(event, span: .thisEvent)
+                    } catch  let error as NSError {
+                        print(error)
+                    }
+                } else {
+                    self.showAlert(text: "Something went wrong! \n Event is not added to your calendar")
+                }
+            }
+        } else {
+            self.showAlert(text: "Time is not set up for this event.\n Detail info comes soon!")
+        }
+    }
+    
 }
 
-extension ConcertDetailsViewController: UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+
+extension ConcertDetailsViewController: ConcertDetailsDelegate {
+    func goingButtonPressed() {
+        let ctrl = UIAlertController(title: "Add event to calendar", message: "blabla", preferredStyle: .alert)
+        ctrl.addAction(UIAlertAction(title: "Add", style: .default, handler: { (alert) in
+            self.createCalendarEvent()
+        }))
+        ctrl.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(ctrl, animated: true, completion: nil)
     }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height - concertMapView.frame.height
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "concertCell",for: indexPath) as! ConcertDetailsTableViewCell
-        cell.selectionStyle = .none
-        cell.profileImage.image = UIImage(named: "\(upcommingName)")
-        cell.nameLbl.text = upcommingName
-        cell.infoLbl.text = event?.location?.city ?? "no value"
-        cell.concertStartTime.text = "  Concert starts at \(event?.start?.time ?? "time is not set yet")"
-        cell.ticketsPrice.text = "  Avg ticket price is: 45-85$"
-        cell.additionalInfoLbl.text = event?.displayName
-        return cell
-    }
-    
-    
     
     
 }
-
 
 
 

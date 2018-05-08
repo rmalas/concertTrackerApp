@@ -16,8 +16,8 @@ class TabBarController: UITabBarController {
     }
     
     func additionalDesignSetUps() {
-        tabBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)  // bottom TabBar color setUp
-        tabBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1) // bottom tabBar items color setUp
+        tabBar.barTintColor = SetUpColors.whiteColor // bottom TabBar color setUp
+        tabBar.tintColor = SetUpColors.redColor // bottom tabBar items color setUp
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

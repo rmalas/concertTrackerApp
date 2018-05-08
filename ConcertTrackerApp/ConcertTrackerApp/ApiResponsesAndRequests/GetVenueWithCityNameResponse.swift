@@ -27,20 +27,16 @@ struct VenueCityResultsPage: Decodable {
 
 
 struct VenueCityResults: Decodable {
-    
     let location: [LocationsData]
 }
 
 struct LocationsData: Decodable {
-    
     let city: CityDescr
     let metroArea:MetroArea
     
 }
 
 struct CityDescr: Decodable {
-
-    
     let lat: Double?
     let lng: Double?
     let country: Country
@@ -60,9 +56,7 @@ struct MetroArea: Decodable {
 }
 
 struct Country: Decodable {
-    
     let displayName: String
-    
 }
 
 

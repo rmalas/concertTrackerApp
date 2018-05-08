@@ -2,54 +2,69 @@
 //  SearchViewController.swift
 //  ConcertTrackerApp
 //
-//  Created by Roman Malasnyak on 4/26/18.
+//  Created by Roman Malasnyak on 5/7/18.
 //  Copyright © 2018 Roman Malasnyak. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-protocol SearchViewControllerDelegate: class {
-    func searchTextReceived(searchText : String,onTour: String,artID: Int)
-}
-
-class SearchViewController: UIViewController,UISearchBarDelegate {
+class SearchViewController: UIViewController {
     
-    weak var searchDelegate: SearchViewControllerDelegate?
+    @IBOutlet weak var actorsTableView: UITableView!
+    @IBOutlet weak var actorsSearchBar: UISearchBar!
     
-    var searchedValue: String?
-    var onTourUntil: String?
+    weak var searchDelegate: ActorChosenDelegate?
+    
+    var dataArray = [Artist]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-    }
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        actorsSearchBar.barStyle = .black
+        actorsTableView.backgroundColor = SetUpColors.whiteColor
         
-
-        
-        guard let printedText = searchBar.text else { return }
-        try! RequestManager.shared.searchArtist(name: printedText) { (artist) in
-            guard let searchedValue = artist[0].displayName else { return }
-            let searchedOnTour = artist[0].onTourUntil ?? "Already Finished"
-            guard let artistID = artist[0].id else { return }
-            self.searchDelegate?.searchTextReceived(searchText: searchedValue,onTour: searchedOnTour,artID: artistID)
-        }
-        
-        dismiss(animated: true, completion: nil)
     }
-
     
 }
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        dataArray = []
+        actorsTableView.clearsContextBeforeDrawing = true
+        try! RequestManager.shared.searchArtist(name: searchBar.text!) { (artist) in
+            for item in artist {
+                self.dataArray.append(item)
+            }
+            self.actorsTableView.reloadData()
+        }
+        searchBar.endEditing(true)
+    }
+    
+    
+}
+
+extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell",for: indexPath)
+        cell.textLabel?.text = dataArray[indexPath.row].displayName
+        cell.backgroundColor = SetUpColors.whiteColor
+        cell.textLabel?.textColor = UIColor.white
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        self.searchDelegate?.searchTextRecieved(artistName: dataArray[indexPath.row].displayName ?? "", artistOnTourUntil: dataArray[indexPath.row].onTourUntil, artistID: dataArray[indexPath.row].id ?? 123)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+
+
+
+

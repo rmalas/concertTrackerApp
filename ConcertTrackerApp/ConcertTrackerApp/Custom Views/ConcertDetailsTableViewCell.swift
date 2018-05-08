@@ -11,6 +11,8 @@ import MapKit
 
 class ConcertDetailsTableViewCell: UITableViewCell {
     
+    weak var delegate: ConcertDetailsDelegate?
+    
     @IBOutlet weak var backViewTwo: UIView!
     @IBOutlet weak var additionalInfoLbl: UILabel!
     @IBOutlet weak var infoLbl: UILabel!
@@ -21,9 +23,10 @@ class ConcertDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var ticketsPrice: UILabel!
     @IBOutlet weak var ticketButton: UIButton!
     
-    @IBAction func visitButtonClicked(_ sender: UIButton) {
-        print(123)
+    @IBAction func goingButtonPressed(_ sender: UIButton) {
+        delegate?.goingButtonPressed()
     }
+    
     @IBOutlet weak var backView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()

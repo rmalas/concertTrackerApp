@@ -8,50 +8,86 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var artistSearchBar: UISearchBar!
+    @IBOutlet weak var actorsTableView: UITableView!
+    
+    @IBAction func searchButtonPressed(_ sender: UIBarButtonItem) {
+        let searchVC = storyboard?.instantiateViewController(withIdentifier: "searchController") as! SearchViewController
+        searchVC.searchDelegate = self
+        present(searchVC, animated: true, completion: nil)
+    }
+
+    var fileterdDataArray: [Actors] = []
+    
+    var dataArray = DatabaseManager.shared.realm.objects(Actors.self)
+    
+    let searchController = UISearchController(searchResultsController: nil)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalDesignSetUps()
-        
-        actorsTableView.contentOffset.y = searchBar.frame.height
+        setUpFilterBar()
     }
     
-   
-    
-    @IBOutlet weak var actorsTableView: UITableView!
-    
-    var dataArray: [Actors] = []
-    
-    @IBAction func searchButtonPressed(_ sender: UIBarButtonItem) {
-        //actorsTableView.setContentOffset(CGPoint.zero, animated: true)
-        
-        let searchViewController = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
-        searchViewController.searchDelegate = self
-        self.present(searchViewController, animated: true, completion: nil)
+    func setUpFilterBar() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search artist"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
     
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        fileterdDataArray = dataArray.filter({( actor : Actors) -> Bool in
+            return actor.name.lowercased().contains(searchText.lowercased())
+        })
+        actorsTableView.reloadData()
+    }
+
     
     
     func additionalDesignSetUps() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1) // navigationBar color setUp
-        view.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
-        navigationController?.navigationBar.tintColor = UIColor(red: 244.0/255, green: 0, blue: 61.0/255, alpha: 1) // navigationBarItems color setUp
+        navigationController?.navigationBar.barTintColor = SetUpColors.whiteColor // navigationBar color setUp
+        view.backgroundColor = SetUpColors.whiteColor
+        navigationController?.navigationBar.tintColor = SetUpColors.redColor // navigationBarItems color setUp
         
-        self.actorsTableView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
+        self.actorsTableView.backgroundColor = SetUpColors.whiteColor
 
-        let attributes: [NSAttributedStringKey:Any] = [NSAttributedStringKey.foregroundColor: UIColor(red: 255.0/255, green: 255.0/255, blue: 255.0/255, alpha: 1)]
-        navigationController?.navigationBar.titleTextAttributes = attributes // Navigation title color setUp with attributes
+        
+        navigationController?.navigationBar.titleTextAttributes = SetUpColors.attributes // Navigation title color setUp with attributes
+        
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showArtistDetails", let cell = sender as? CustomTableViewCell {
+            let destinationViewController = segue.destination as! ArtistDetailViewController
+            
+            guard let cellIndexPath = actorsTableView.indexPath(for: cell) else {
+                return
+            }
+            destinationViewController.counter = dataArray[cellIndexPath.row].artistID
+        }
+    }
 }
 
 
+extension ViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
 
 
 extension ViewController: SearchViewControllerDelegate {
@@ -60,60 +96,76 @@ extension ViewController: SearchViewControllerDelegate {
         let contains = dataArray.contains{ $0.name == searchText }
         
         if (!contains){
-        let actorsObject = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
-            dataArray.append(actorsObject)
+        let _ = Actors(name: searchText, onTourUntil: onTour,artistID: artID)
             let annimatedAtIndexPath = IndexPath(row: dataArray.count-1, section: 0)
             DispatchQueue.main.async {
                 self.actorsTableView.beginUpdates()
                 self.actorsTableView.insertRows(at: [annimatedAtIndexPath], with: .automatic)
                 self.actorsTableView.endUpdates()
             }
-            //self.actorsTableView.reloadData()
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let printedText = searchBar.text else { return }
+        try! RequestManager.shared.searchArtist(name: printedText, completion: {  (artist) in
+            guard let searchedValue = artist[0].displayName else { return }
+            let searchedOnTour = artist[0].onTourUntil ?? "Already Finished"
+            guard let artistID = artist[0].id else { return }
+            self.searchTextReceived(searchText: searchedValue,onTour: searchedOnTour,artID: artistID)
+        })
+        self.actorsTableView.contentOffset.y = searchBar.frame.height
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 }
 
 
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 124
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let destinationVC = ArtistDetailViewController()
-//        navigationController?.pushViewController(destinationVC, animated: true)
-        
-        let secondVC = storyboard?.instantiateViewController(withIdentifier: "ArtistDetailViewController") as! ArtistDetailViewController
-        secondVC.counter = dataArray[indexPath.row].artistID
-        navigationController?.pushViewController(secondVC, animated: true)
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return fileterdDataArray.count
+        }
         return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! CustomTableViewCell
+        let actor: Actors
         
-        cell.blurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
-        cell.unBlurredImage.image = UIImage(named: "\(dataArray[indexPath.row].name)") ?? UIImage(named: "Rita Ora")
-        cell.artistConcertPlace.text = "Tour until∙\(String(describing: dataArray[indexPath.row].onTourUntil))"
-        cell.artistNameLabel.text = dataArray[indexPath.row].name
+        if isFiltering() {
+            actor = fileterdDataArray[indexPath.row]
+        } else {
+            actor = dataArray[indexPath.row]
+        }
+        
+        cell.blurredImage.image = UIImage(named: "\(actor.name)") ?? UIImage(named: "Rita Ora")
+        cell.unBlurredImage.image = UIImage(named: "\(actor.name)") ?? UIImage(named: "Rita Ora")
+        cell.artistConcertPlace.text = "Tour until∙\(String(describing: actor.onTourUntil))"
+        cell.artistNameLabel.text = actor.name
         cell.concertDateLabel.text = "Click for more info"
         
         return cell
         
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.00001
-    }
-    
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+}
+
+protocol ActorChosenDelegate: class {
+    func searchTextRecieved(artistName: String,artistOnTourUntil: String?,artistID: Int)
+}
+
+extension ViewController: ActorChosenDelegate {
+    func searchTextRecieved(artistName: String, artistOnTourUntil: String?, artistID id: Int) {
+        let actor = Actors(name: artistName, onTourUntil: artistOnTourUntil, artistID: id)
+        actor.writeToRealm()
+        self.actorsTableView.reloadData()
     }
 }
+
 
 
 

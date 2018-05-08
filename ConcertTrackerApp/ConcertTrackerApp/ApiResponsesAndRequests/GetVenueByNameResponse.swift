@@ -20,13 +20,6 @@ struct VenuesSearch_Info: Decodable {
     let totalEntries:Int?
 }
 
-//struct SearchArtist_Info:Decodable {
-//    let status: String?
-//   let results: Results<Artist>?
-//    let perPage: Int?
-//    let page: Int?
-//    let totalEntries: Int?
-//}
 
 struct VenuesSearch_Results: Decodable {
     let venue: [VenuesSearch_Venue]?

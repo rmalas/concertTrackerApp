@@ -16,14 +16,10 @@ class Favourites: Object {
 }
 
 
-
-
-
 extension Object {
     func writeToRealm() {
         do {
             try DatabaseManager.shared.execute { (realm) in
-                print(realm.configuration.fileURL)
                 try realm.write {
                     realm.add(self, update: true)
                 }

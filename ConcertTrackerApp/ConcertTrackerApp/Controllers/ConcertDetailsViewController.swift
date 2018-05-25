@@ -18,10 +18,10 @@ class ConcertDetailsViewController: UIViewController {
     
     var upcommingName = ""
     var upCommingID = 0
-    var coords: CLLocationCoordinate2D?
-    var event: EventDetails_EventInfo?
+    var coords: GeoCoordinates2D?
+    var event: Event?
     
-    
+    //MARK: Outlets
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var eventCityLabel: UILabel!
@@ -32,8 +32,8 @@ class ConcertDetailsViewController: UIViewController {
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
         let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        print(coords?.latitude,coords?.longitude)
-        mapVC.concertCoordinates = coords
+        
+        mapVC.concertCoordinates = event?.location?.coordinates?.coreLocationCoordinate2D
         navigationController?.pushViewController(mapVC, animated: true)
     }
     @IBAction func handleGoing(_ sender: UIButton) {
@@ -44,18 +44,27 @@ class ConcertDetailsViewController: UIViewController {
     
     @IBOutlet weak var profileNameLbl: UILabel!
     
+    
+    //MARK: lifecycle
     override func viewDidLoad() {
+
         super.viewDidLoad()
         RequestManager.shared.getEventDetails(eventID: upCommingID) { (event) in
-            print(event.location?.city ?? "no city yet")
+//            self.coords?.latitude = event.location?.coordinates?.latitude ?? 0.0
+//            self.coords?.longitude = event.location?.coordinates?.longitude ?? 0.0
+            print("*****\(self.upCommingID)*******")
+            print(event.location?.coordinates ?? "no city yet")
             DispatchQueue.main.async {
-                
-                self.event = event
+                self.coords = event.location?.coordinates
                 self.artistNameLabel.text = self.upcommingName
                 self.eventCityLabel.text = event.location?.city
                 self.detailInfoLabel.text = event.displayName
-                self.coords = event.location?.coordinates
-                self.concertStartTimeLabel.text = "Event starts at" + (event.start?.time ?? "Time is not set up yet!") 
+                //self.coords = event.location?.coordinates?.coreLocationCoordinate2D
+                if event.start?.time != nil {
+                    self.concertStartTimeLabel.text = "Event starts at \(event.start?.time ?? "")"
+                } else {
+                    self.concertStartTimeLabel.text = "Time is not set up yet!"
+                }
                 self.setUpMap()
             }
         }
@@ -74,10 +83,11 @@ class ConcertDetailsViewController: UIViewController {
         guard let event = event, let location = event.location?.coordinates else {
             return
         }
+        
         let annotationPin = MKPointAnnotation()
-        annotationPin.coordinate = location
+        annotationPin.coordinate = location.coreLocationCoordinate2D
         var region = MKCoordinateRegion()
-        region.center = location
+        region.center = location.coreLocationCoordinate2D
         region.span.latitudeDelta = 0.05
         region.span.longitudeDelta = 0.05
         concertMapView.addAnnotation(annotationPin)

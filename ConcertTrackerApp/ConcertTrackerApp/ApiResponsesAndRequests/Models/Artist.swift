@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
+
 protocol ResultsProtocol: Decodable {
     
 }
@@ -16,19 +18,19 @@ protocol Entity: Decodable {
 }
 
 class SearchPage<E: Entity>: Decodable {
-    typealias ResultsType = Results<E>
+    typealias ResultsType = SearchResults<E>
     var resultsPage: SearchResultPage<ResultsType>? = nil
 }
 
 class SearchResultPage<T:ResultsProtocol>: ResultsProtocol, Decodable {
     var status: String? = nil
     var results: T? = nil
-    var perPage: Int = 0
-    var page: Int = 0
-    var totalEntries: Int = 0
+    var perPage: Int?
+    var page: Int?
+    var totalEntries: Int?
 }
 
-class Results<T:Entity>: ResultsProtocol, Decodable {
+class SearchResults<T:Entity>: ResultsProtocol, Decodable {
     var info: [T]?
     
     struct CodingKeys: CodingKey {
@@ -57,14 +59,51 @@ class Results<T:Entity>: ResultsProtocol, Decodable {
     }
 }
 
-class Artist: Decodable, Entity {
+class Artist: Object, Decodable, Entity {
     static func entityName() -> String {
         return "artist"
     }
-    var displayName: String?
-    var uri: String?
-    var onTourUntil: String?
-    var id: Int?
+    @objc dynamic var displayName: String? = nil
+    @objc dynamic var uri: String? = nil
+    @objc dynamic var onTourUntil: String? = nil
+    @objc dynamic var id: Int = 0
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    var isFavourite: Bool {
+        if self.isInvalidated {
+            return false
+        }
+        let user = DatabaseManager.shared.object(ofType: type(of: self).self, forPrimaryKey: id)
+            return user != nil
+    }
+    
+    private var upcomingEvents = List<Event>()
+    func getUpcomingEvents(events: @escaping ([Event]) -> Void) {
+        if isFavourite || upcomingEvents.count > 0 {
+            events(Array(upcomingEvents))
+        } else {
+            do {
+                try RequestManager.shared.getUpcommingEvents(artistID: self.id, completion: { (allEvents) in
+                        allEvents.forEach({ (event) in
+                            self.upcomingEvents.append(event)
+                        })
+                    events(allEvents)
+                })
+                
+            } catch {
+                events([Event]())
+            }
+        }
+    }
+    enum CodingKeys: String, CodingKey {
+        case displayName
+        case uri
+        case onTourUntil
+        case id
+    }
 }
 
 class City: Decodable,Entity {

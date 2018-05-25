@@ -27,21 +27,22 @@ class SearchViewController: UIViewController {
         actorsTableView.backgroundColor = SetUpColors.whiteColor
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        actorsSearchBar.becomeFirstResponder()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "artistProfile", let cell = sender as? UITableViewCell {
             
             let destinationViewController = segue.destination as! ArtistProfileViewController
-            destinationViewController.getActor = self
+//            destinationViewController.getActor = self
             destinationViewController.favoritesBlock = {(favorite) in
                 if favorite {
                    self.dismiss(animated: true, completion: nil)
-//                    self.searchDelegate?.searchTextRecieved(artistName: name, artistOnTourUntil: info, artistID: id)
                 }
             }
-            guard let cellIndexPath = actorsTableView.indexPath(for: cell), let selectedCell = actorsTableView.indexPathForSelectedRow?.row else {
-                return
-            }
+            guard let cellIndexPath = actorsTableView.indexPath(for: cell) else { return }
             destinationViewController.artistModel = dataArray[cellIndexPath.row]
         }
     }
@@ -52,15 +53,12 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         dataArray = []
         actorsTableView.clearsContextBeforeDrawing = true
-        try! RequestManager.shared.searchArtist(name: searchBar.text!) { (artist) in
-            for item in artist {
-                self.dataArray.append(item)
-            }
+        try? RequestManager.shared.searchArtist(name: searchBar.text!) { (artist) in
+            self.dataArray = artist
             self.actorsTableView.reloadData()
         }
         searchBar.endEditing(true)
     }
-    
 }
 
 
@@ -86,17 +84,17 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
 }
 
 
-protocol ArtistReceivedDelegate: class {
-    func getArtist(artistName: String,artistId: Int,artistOnTour: String)
-}
-
-extension SearchViewController: ArtistReceivedDelegate {
-    func getArtist(artistName: String, artistId: Int, artistOnTour: String) {
-        actorsName = artistName
-        actorTourUntil = artistOnTour
-        actorsId = artistId
-    }
-}
+//protocol ArtistReceivedDelegate: class {
+//    func getArtist(artistName: String,artistId: Int,artistOnTour: String)
+//}
+//
+//extension SearchViewController: ArtistReceivedDelegate {
+//    func getArtist(artistName: String, artistId: Int, artistOnTour: String) {
+//        actorsName = artistName
+//        actorTourUntil = artistOnTour
+//        actorsId = artistId
+//    }
+//}
 
 
 

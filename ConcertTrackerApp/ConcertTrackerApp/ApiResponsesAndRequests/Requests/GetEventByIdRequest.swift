@@ -9,10 +9,14 @@
 import Foundation
 
 class GetEventByIdRequest : AbstractRequest {
-    var artistQuery: String?
     
+    var eventId: Int?
     override var url: String {
-        return "search/events/"
+        guard let eventId = eventId else {
+            preconditionFailure("artistId is nil")
+        }
+        return "events/\(eventId).json"
     }
+    
 }
 

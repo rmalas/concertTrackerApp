@@ -14,7 +14,6 @@ class ArtistDetailTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         additionalSetUps()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -22,7 +21,6 @@ class ArtistDetailTableViewCell: UITableViewCell {
     }
     
     func additionalSetUps() {
-//        detailsBackgroundView.backgroundColor = UIColor(red: 46/255.0, green: 49/255.0, blue: 52.0/255, alpha: 1)
     }
     
     @IBOutlet weak var detailsBackgroundView: UIView!

@@ -11,15 +11,35 @@ import RealmSwift
 
 class DatabaseManager {
     static let shared = DatabaseManager()
-    var realm: Realm!
-    
     
     func execute(_ completion: (_ realmObject: Realm) throws -> Void) throws {
-        try completion(realm)
+        try completion(Realm())
     }
     
+    func save(object: Object) throws {
+        try DatabaseManager.shared.execute { (realm) in
+            try realm.write {
+                realm.add(object, update: true)
+            }
+        }
+    }
     
-
+    func delete(object: Object) throws {
+        try DatabaseManager.shared.execute { (realm) in
+            try realm.write {
+                realm.delete(object)
+            }
+        }
+    }
+    
+    func objects<Element: Object>(_ type: Element.Type) -> Results<Element> {
+        return try! Realm().objects(type)
+    }
+    
+    func object<Element: Object, KeyType>(ofType type: Element.Type, forPrimaryKey key: KeyType) -> Element? {
+        return try! Realm().object(ofType: type, forPrimaryKey: key)
+    }
+    
     private func configuraRealm() {
         let config = Realm.Configuration(
             schemaVersion: 1,
@@ -31,7 +51,11 @@ class DatabaseManager {
     
     private init() {
         configuraRealm()
-        realm = try! Realm()
-        print(realm.configuration.fileURL)
+        print(try! Realm().configuration.fileURL)
+
+    }
+    
+    func dbUrl() -> URL {
+        return Realm.Configuration.defaultConfiguration.fileURL!
     }
 }

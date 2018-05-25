@@ -10,9 +10,26 @@ import UIKit
 
 class RecommendedViewController: UIViewController {
 
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var recommendedArtistsCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = SetUpColors.whiteColor
+        recommendedArtistsCollectionView.backgroundColor = SetUpColors.whiteColor
     }
 
+}
+
+extension RecommendedViewController: UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 40
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendedCell", for: indexPath) as! RecommendedArtistCollectionViewCell
+        
+        return cell
+    }
+    
+    
 }

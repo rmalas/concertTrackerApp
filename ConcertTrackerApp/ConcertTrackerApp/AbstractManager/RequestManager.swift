@@ -12,6 +12,21 @@ import Alamofire
 class RequestManager {
     static let shared = RequestManager()
     
+//    func searchSimilarArtist(id artistId: Int, completion: (_ artist: [Artist]) -> Void) {
+//        let request = GetSimilarArtistRequest()
+//        request.artistId = artistId
+//        guard let url = URL(string: request.requestUrl) else { return }
+//        let session = URLSession.shared
+//        let task = session.dataTask(with: url) { (data, response, error) in
+//            guard let data = data else { return }
+//
+//            let decodedData = try JSONDecoder().decode(SearchPage<Artist>.self, from: data)
+//
+//        }
+//        task.resume()
+//    }
+    
+    
     
     func searchArtist(name artistName: String, completion: @escaping (_ artists: [Artist]) -> Void) throws {
         let request = GetArtistByNameRequest()
@@ -36,11 +51,7 @@ class RequestManager {
         })
     }
     
-    func getEventById(id artistID: String) {
-        let request = GetArtistByNameRequest()
-        guard let url = URL(string: request.requestUrl) else { return }
-        print(url)
-    }
+    
     
     func getEventDetails(eventID id: Int, completion: @escaping (_ eventDetails: EventDetails_EventInfo) -> Void) {
         guard let url = URL(string: "http://api.songkick.com/api/3.0/events/\(id).json?apikey=\(Constants.API.key)") else { return }
@@ -52,31 +63,30 @@ class RequestManager {
                 let users = try JSONDecoder().decode(EventDetails_ResultsPage.self, from: data)
                 guard let info = users.resultsPage.results?.event else { return }
                 DispatchQueue.main.async {
-                   completion(info)
+                    completion(info)
                 }
             } catch { print(error) }
         }
         task.resume()
     }
     
-    func getUpcommingEvents(artistID id:Int, completion: @escaping (_ concert: Concert_Results) -> Void) {
-        guard let url = URL(string: "http://api.songkick.com/api/3.0/artists/\(id)/calendar.json?apikey=\(Constants.API.key)&per_page=50") else { return }
+    func getUpcommingEvents(artistID id:Int, completion: @escaping (_ concert: [Event]) -> Void) throws {
+        let request = GetArtistUpcomingEventsRequest()
+        request.artistId = id
+        guard let url = URL(string: request.requestUrl) else { throw Failure(message: "Invalid request URL") }
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, error, _) in
+        let task = session.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {
-                let users = try JSONDecoder().decode(Conecert_ResultsPage.self, from: data)
-                guard let data = users.resultsPage.results.event else { return }
-                let retData = users.resultsPage
-                for item in data {
-                    print(item.displayName ?? "finished","at",item.location?.city ?? "finished")
-                }
-                DispatchQueue.main.async {
-                    completion(retData)
-                }
+                let eventsSearchResult = try JSONDecoder().decode(SearchPage<Event>.self, from: data)
                 
-            } catch {
-                print(error)
+                guard let events = eventsSearchResult.resultsPage?.results?.info else {
+                    completion([Event]())
+                    return
+                }
+                completion(events)
+            } catch (let decodingError) {
+                print( decodingError)
             }
         }
         task.resume()
@@ -103,6 +113,24 @@ class RequestManager {
                 }
             }
         }
+    }
+    
+    
+    func searchByVenueId(id venueId: Int,completion: @escaping (_ venue: [Venue]) -> Void) throws {
+        let request = GetVenueById()
+        request.venueId = venueId
+        guard let url = URL(string: request.requestUrl) else { throw Failure(message: "Invalid request URL") }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let venue = try JSONDecoder().decode(SearchPage<Venue>.self, from: data)
+                print(venue)
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
     }
     
     func getDataWithVenueName(name venueName: String, completion: (_ city: City) -> Void) {

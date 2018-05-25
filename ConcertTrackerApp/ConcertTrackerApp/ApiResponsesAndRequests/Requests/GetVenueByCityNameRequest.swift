@@ -21,3 +21,5 @@ class GetVenueByCityNameRequest: AbstractRequest {
         return queryParameters
     }
 }
+
+

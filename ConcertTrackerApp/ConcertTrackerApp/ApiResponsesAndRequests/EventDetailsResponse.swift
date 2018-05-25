@@ -7,26 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct EventDetails_ResultsPage: Decodable {
-    let resultsPage: EventDetails_Info
+
+class Performance:Object,Decodable {
+    @objc dynamic var displayName: String? = nil
 }
 
-struct EventDetails_Info: Decodable {
-    let status: String
-    let results: EventDetails_Event?
-}
-
-struct EventDetails_Event: Decodable {
-    let event: EventDetails_EventInfo?
-}
-
-struct EventDetails_EventInfo: Decodable {
-    let type: String?
-    let popularity: Double?
-    let displayName: String?
-    let status: String?
-    let id: Int?
-    let start: Start?
-    let location: Location?
+class Start: Object,Decodable {
+    @objc dynamic var time: String? = nil
+    @objc dynamic var date: String? = nil
 }

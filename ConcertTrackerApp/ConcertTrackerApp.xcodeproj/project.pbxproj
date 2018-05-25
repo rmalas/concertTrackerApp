@@ -11,20 +11,26 @@
 		1E050E1A2091EEB800823041 /* SearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E192091EEB800823041 /* SearchProtocol.swift */; };
 		1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1B2091FF7100823041 /* DatabaseManager.swift */; };
 		1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1D20930E4E00823041 /* RecommendedViewController.swift */; };
-		1E050E21209329AF00823041 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E20209329AF00823041 /* Actor.swift */; };
 		1E1748012088732200D6A6D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748002088732200D6A6D6 /* AppDelegate.swift */; };
-		1E1748032088732200D6A6D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748022088732200D6A6D6 /* ViewController.swift */; };
+		1E1748032088732200D6A6D6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748022088732200D6A6D6 /* MainViewController.swift */; };
 		1E1748062088732200D6A6D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748042088732200D6A6D6 /* Main.storyboard */; };
 		1E1748082088732200D6A6D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748072088732200D6A6D6 /* Assets.xcassets */; };
 		1E17480B2088732200D6A6D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E1748092088732200D6A6D6 /* LaunchScreen.storyboard */; };
-		1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */; };
 		1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B3A3820935D38009CDBB4 /* TabBarController.swift */; };
 		1E31FFF2209726D9007B8896 /* ConcertDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */; };
 		1E37C70520988D1000D457AE /* EventDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */; };
 		1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */; };
 		1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B0142091C67D00C056CC /* RequestManager.swift */; };
+		1E41593820A4793200A41899 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41593720A4793200A41899 /* Location.swift */; };
+		1E41593B20A47D1100A41899 /* GetArtistUpcomingEventsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41593A20A47D1100A41899 /* GetArtistUpcomingEventsRequest.swift */; };
+		1E41593E20A4887500A41899 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41593D20A4887500A41899 /* UIImage+Convenience.swift */; };
+		1E41594020A49CE700A41899 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E41593F20A49CE700A41899 /* Event.swift */; };
 		1E4394A52090D5CD00555804 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A42090D5CD00555804 /* Artist.swift */; };
-		1E4394A92091BDD100555804 /* GetEventById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* GetEventById.swift */; };
+		1E4394A92091BDD100555804 /* GetEventByIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4394A82091BDD100555804 /* GetEventByIdRequest.swift */; };
+		1E49BF7D20B42498000CCED6 /* DBandRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49BF7C20B42498000CCED6 /* DBandRequestManager.swift */; };
+		1E49BF7F20B4260F000CCED6 /* DBandRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49BF7E20B4260F000CCED6 /* DBandRequestProtocol.swift */; };
+		1E49BF8120B42E1C000CCED6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49BF8020B42E1C000CCED6 /* Venue.swift */; };
+		1E49BF8320B42FEA000CCED6 /* GetVenueById.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49BF8220B42FEA000CCED6 /* GetVenueById.swift */; };
 		1E6191392096F764006A3518 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6191382096F764006A3518 /* NavViewController.swift */; };
 		1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */; };
 		1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */; };
@@ -34,12 +40,15 @@
 		1E8BB383209C49F300078118 /* GetVenueByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */; };
 		1E8BB385209C4A6000078118 /* GetArtistByNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */; };
 		1E8BB38720A02E9E00078118 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8BB38620A02E9E00078118 /* SearchViewController.swift */; };
-		1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9218E2209487630067C264 /* getConcertDetails.swift */; };
 		1E97ED9520A1742200CAF939 /* ArtistProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E97ED9420A1742200CAF939 /* ArtistProfileViewController.swift */; };
 		1E97ED9720A1D30700CAF939 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E97ED9620A1D30700CAF939 /* Helper.swift */; };
+		1E9C78C520B6826C0072F2D4 /* GetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C78C420B6826C0072F2D4 /* GetDataManager.swift */; };
+		1E9C78C920B696180072F2D4 /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C78C820B696180072F2D4 /* NetworkChecker.swift */; };
+		1E9C78CB20B6E50A0072F2D4 /* RecommendedArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C78CA20B6E50A0072F2D4 /* RecommendedArtistCollectionViewCell.swift */; };
+		1E9C78CD20B6EC710072F2D4 /* GetSimilarArtistRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C78CC20B6EC710072F2D4 /* GetSimilarArtistRequest.swift */; };
+		1E9C78CF20B7EA0C0072F2D4 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9C78CE20B7EA0C0072F2D4 /* Details.swift */; };
 		1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */; };
 		1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD88592099CE5C00FB3E58 /* MapViewController.swift */; };
-		1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */; };
 		1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */; };
 		1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5428A208F1BFE0058D5FF /* Favourites.swift */; };
 		CA321B78A9B9FF51B673A7DD /* Pods_ConcertTrackerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED5C163E88591F6894A8571 /* Pods_ConcertTrackerApp.framework */; };
@@ -50,22 +59,28 @@
 		1E050E192091EEB800823041 /* SearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocol.swift; sourceTree = "<group>"; };
 		1E050E1B2091FF7100823041 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1E050E1D20930E4E00823041 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
-		1E050E20209329AF00823041 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		1E1747FD2088732200D6A6D6 /* ConcertTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcertTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E1748002088732200D6A6D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1E1748022088732200D6A6D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1E1748022088732200D6A6D6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1E1748052088732200D6A6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E1748072088732200D6A6D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E17480A2088732200D6A6D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E17480C2088732200D6A6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistResponse.swift; sourceTree = "<group>"; };
 		1E2B3A3820935D38009CDBB4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1E31FFF1209726D9007B8896 /* ConcertDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailsViewController.swift; sourceTree = "<group>"; };
 		1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsResponse.swift; sourceTree = "<group>"; };
 		1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		1E39B0142091C67D00C056CC /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		1E41593720A4793200A41899 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		1E41593A20A47D1100A41899 /* GetArtistUpcomingEventsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistUpcomingEventsRequest.swift; sourceTree = "<group>"; };
+		1E41593D20A4887500A41899 /* UIImage+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Convenience.swift"; sourceTree = "<group>"; };
+		1E41593F20A49CE700A41899 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1E4394A42090D5CD00555804 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		1E4394A82091BDD100555804 /* GetEventById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventById.swift; sourceTree = "<group>"; };
+		1E4394A82091BDD100555804 /* GetEventByIdRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEventByIdRequest.swift; sourceTree = "<group>"; };
+		1E49BF7C20B42498000CCED6 /* DBandRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBandRequestManager.swift; sourceTree = "<group>"; };
+		1E49BF7E20B4260F000CCED6 /* DBandRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBandRequestProtocol.swift; sourceTree = "<group>"; };
+		1E49BF8020B42E1C000CCED6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		1E49BF8220B42FEA000CCED6 /* GetVenueById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueById.swift; sourceTree = "<group>"; };
 		1E6191382096F764006A3518 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameResponse.swift; sourceTree = "<group>"; };
@@ -75,12 +90,15 @@
 		1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVenueByNameRequest.swift; sourceTree = "<group>"; };
 		1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistByNameRequest.swift; sourceTree = "<group>"; };
 		1E8BB38620A02E9E00078118 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		1E9218E2209487630067C264 /* getConcertDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getConcertDetails.swift; sourceTree = "<group>"; };
 		1E97ED9420A1742200CAF939 /* ArtistProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistProfileViewController.swift; sourceTree = "<group>"; };
 		1E97ED9620A1D30700CAF939 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1E9C78C420B6826C0072F2D4 /* GetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataManager.swift; sourceTree = "<group>"; };
+		1E9C78C820B696180072F2D4 /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
+		1E9C78CA20B6E50A0072F2D4 /* RecommendedArtistCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E9C78CC20B6EC710072F2D4 /* GetSimilarArtistRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSimilarArtistRequest.swift; sourceTree = "<group>"; };
+		1E9C78CE20B7EA0C0072F2D4 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewController.swift; sourceTree = "<group>"; };
 		1EAD88592099CE5C00FB3E58 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonHelper.swift; sourceTree = "<group>"; };
 		1ED1FBF22089D064009D5E39 /* AbstractRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequest.swift; sourceTree = "<group>"; };
 		1EF5428A208F1BFE0058D5FF /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		8861B5AF571AD612620123AA /* Pods-ConcertTrackerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConcertTrackerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConcertTrackerApp/Pods-ConcertTrackerApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +121,7 @@
 		1E050E182091EE9300823041 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1E1748022088732200D6A6D6 /* ViewController.swift */,
+				1E1748022088732200D6A6D6 /* MainViewController.swift */,
 				1EA959D22093487B000FFB58 /* ArtistDetailViewController.swift */,
 				1E2B3A3820935D38009CDBB4 /* TabBarController.swift */,
 				1E6191382096F764006A3518 /* NavViewController.swift */,
@@ -119,9 +137,7 @@
 		1E050E1F2093298A00823041 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1ED1FBEB2088ACA2009D5E39 /* SingletonHelper.swift */,
 				1E050E192091EEB800823041 /* SearchProtocol.swift */,
-				1E050E20209329AF00823041 /* Actor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +163,8 @@
 		1E1747FF2088732200D6A6D6 /* ConcertTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E49BF7B20B42466000CCED6 /* DataBaseAndRequestManager */,
+				1E41593C20A4886200A41899 /* Extensions */,
 				1E8BB37D209C3C9200078118 /* SupportingFiles */,
 				1E050E1F2093298A00823041 /* Models */,
 				1EF54289208F1BDE0058D5FF /* RealmModels */,
@@ -164,13 +182,11 @@
 		1E174812208874E200D6A6D6 /* ApiResponsesAndRequests */ = {
 			isa = PBXGroup;
 			children = (
-				1E1748152088769D00D6A6D6 /* GetArtistResponse.swift */,
 				1E87F68C208B2DB4000F9501 /* GetVenueByNameResponse.swift */,
 				1E87F690208DB985000F9501 /* GetVenueWithCityNameResponse.swift */,
-				1E4394A42090D5CD00555804 /* Artist.swift */,
-				1E9218E2209487630067C264 /* getConcertDetails.swift */,
 				1E37C70420988D0F00D457AE /* EventDetailsResponse.swift */,
 				1E8BB381209C498C00078118 /* Requests */,
+				1E41593920A4797600A41899 /* Models */,
 			);
 			path = ApiResponsesAndRequests;
 			sourceTree = "<group>";
@@ -181,8 +197,39 @@
 				1E050E162091DF5D00823041 /* CustomTableViewCell.swift */,
 				1E61913A2096FBD7006A3518 /* ArtistDetailTableViewCell.swift */,
 				1E38BC432099A27500C25BAA /* ConcertDetailsTableViewCell.swift */,
+				1E9C78CA20B6E50A0072F2D4 /* RecommendedArtistCollectionViewCell.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		1E41593920A4797600A41899 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E4394A42090D5CD00555804 /* Artist.swift */,
+				1E41593720A4793200A41899 /* Location.swift */,
+				1E41593F20A49CE700A41899 /* Event.swift */,
+				1E49BF8020B42E1C000CCED6 /* Venue.swift */,
+				1E9C78CE20B7EA0C0072F2D4 /* Details.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E41593C20A4886200A41899 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1E41593D20A4887500A41899 /* UIImage+Convenience.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1E49BF7B20B42466000CCED6 /* DataBaseAndRequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				1E49BF7C20B42498000CCED6 /* DBandRequestManager.swift */,
+				1E49BF7E20B4260F000CCED6 /* DBandRequestProtocol.swift */,
+				1E9C78C420B6826C0072F2D4 /* GetDataManager.swift */,
+			);
+			path = DataBaseAndRequestManager;
 			sourceTree = "<group>";
 		};
 		1E8BB37D209C3C9200078118 /* SupportingFiles */ = {
@@ -192,6 +239,7 @@
 				1E1748002088732200D6A6D6 /* AppDelegate.swift */,
 				1E8BB37B209C382B00078118 /* designSetUps.swift */,
 				1E97ED9620A1D30700CAF939 /* Helper.swift */,
+				1E9C78C820B696180072F2D4 /* NetworkChecker.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -200,9 +248,12 @@
 			isa = PBXGroup;
 			children = (
 				1E8BB37F209C498800078118 /* GetVenueByCityNameRequest.swift */,
-				1E4394A82091BDD100555804 /* GetEventById.swift */,
+				1E4394A82091BDD100555804 /* GetEventByIdRequest.swift */,
 				1E8BB382209C49F300078118 /* GetVenueByNameRequest.swift */,
 				1E8BB384209C4A6000078118 /* GetArtistByNameRequest.swift */,
+				1E41593A20A47D1100A41899 /* GetArtistUpcomingEventsRequest.swift */,
+				1E49BF8220B42FEA000CCED6 /* GetVenueById.swift */,
+				1E9C78CC20B6EC710072F2D4 /* GetSimilarArtistRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -359,35 +410,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8BB38720A02E9E00078118 /* SearchViewController.swift in Sources */,
-				1E9218E3209487630067C264 /* getConcertDetails.swift in Sources */,
+				1E49BF7D20B42498000CCED6 /* DBandRequestManager.swift in Sources */,
+				1E41594020A49CE700A41899 /* Event.swift in Sources */,
 				1E38BC442099A27500C25BAA /* ConcertDetailsTableViewCell.swift in Sources */,
 				1E39B0152091C67D00C056CC /* RequestManager.swift in Sources */,
+				1E41593B20A47D1100A41899 /* GetArtistUpcomingEventsRequest.swift in Sources */,
 				1EF5428B208F1BFE0058D5FF /* Favourites.swift in Sources */,
 				1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */,
 				1E8BB385209C4A6000078118 /* GetArtistByNameRequest.swift in Sources */,
+				1E9C78CD20B6EC710072F2D4 /* GetSimilarArtistRequest.swift in Sources */,
 				1E97ED9720A1D30700CAF939 /* Helper.swift in Sources */,
 				1E4394A52090D5CD00555804 /* Artist.swift in Sources */,
+				1E9C78C520B6826C0072F2D4 /* GetDataManager.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
 				1E6191392096F764006A3518 /* NavViewController.swift in Sources */,
+				1E9C78CF20B7EA0C0072F2D4 /* Details.swift in Sources */,
 				1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */,
+				1E41593E20A4887500A41899 /* UIImage+Convenience.swift in Sources */,
+				1E49BF7F20B4260F000CCED6 /* DBandRequestProtocol.swift in Sources */,
 				1E8BB380209C498800078118 /* GetVenueByCityNameRequest.swift in Sources */,
-				1E050E21209329AF00823041 /* Actor.swift in Sources */,
-				1ED1FBEC2088ACA2009D5E39 /* SingletonHelper.swift in Sources */,
 				1E8BB37C209C382B00078118 /* designSetUps.swift in Sources */,
 				1E61913B2096FBD7006A3518 /* ArtistDetailTableViewCell.swift in Sources */,
 				1ED1FBF32089D064009D5E39 /* AbstractRequest.swift in Sources */,
-				1E4394A92091BDD100555804 /* GetEventById.swift in Sources */,
+				1E4394A92091BDD100555804 /* GetEventByIdRequest.swift in Sources */,
 				1E2B3A3920935D38009CDBB4 /* TabBarController.swift in Sources */,
 				1EA959D32093487B000FFB58 /* ArtistDetailViewController.swift in Sources */,
 				1E8BB383209C49F300078118 /* GetVenueByNameRequest.swift in Sources */,
 				1E050E1A2091EEB800823041 /* SearchProtocol.swift in Sources */,
-				1E1748032088732200D6A6D6 /* ViewController.swift in Sources */,
-				1E1748162088769D00D6A6D6 /* GetArtistResponse.swift in Sources */,
+				1E1748032088732200D6A6D6 /* MainViewController.swift in Sources */,
 				1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */,
+				1E9C78C920B696180072F2D4 /* NetworkChecker.swift in Sources */,
 				1E37C70520988D1000D457AE /* EventDetailsResponse.swift in Sources */,
+				1E9C78CB20B6E50A0072F2D4 /* RecommendedArtistCollectionViewCell.swift in Sources */,
 				1E31FFF2209726D9007B8896 /* ConcertDetailsViewController.swift in Sources */,
 				1E97ED9520A1742200CAF939 /* ArtistProfileViewController.swift in Sources */,
 				1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */,
+				1E49BF8120B42E1C000CCED6 /* Venue.swift in Sources */,
+				1E49BF8320B42FEA000CCED6 /* GetVenueById.swift in Sources */,
+				1E41593820A4793200A41899 /* Location.swift in Sources */,
 				1E1748012088732200D6A6D6 /* AppDelegate.swift in Sources */,
 				1E050E172091DF5D00823041 /* CustomTableViewCell.swift in Sources */,
 			);
@@ -537,6 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FHHDVG3C3L;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FHHDVG3C3L;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

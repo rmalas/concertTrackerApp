@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(concertCoordinates?.latitude,concertCoordinates?.longitude)
         guard let coords = concertCoordinates else { return }
         setAnnotationPin(coordinates: coords)
     }

@@ -21,6 +21,7 @@ class ConcertDetailsViewController: UIViewController {
     var coords: GeoCoordinates2D?
     var event: Event?
     var coordinates: CLLocationCoordinate2D?
+    var segueIdentifier = false
     
     
     //MARK: Outlets
@@ -31,6 +32,7 @@ class ConcertDetailsViewController: UIViewController {
     @IBOutlet weak var detailInfoLabel: UILabel!
     @IBOutlet weak var concertStartTimeLabel: UILabel!
     @IBOutlet weak var ticketsPriceLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
         let mapVC = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
@@ -40,6 +42,10 @@ class ConcertDetailsViewController: UIViewController {
     }
     @IBAction func handleGoing(_ sender: UIButton) {
         createCalendarEvent()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var concertMapView: MKMapView!
@@ -65,6 +71,9 @@ class ConcertDetailsViewController: UIViewController {
     //MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        if segueIdentifier == true {
+            backButton.removeFromSuperview()
+        }
         somefunc()
         RequestManager.shared.getEventDetails(eventID: upCommingID) { (event) in
             print("*****\(self.upCommingID)*******")

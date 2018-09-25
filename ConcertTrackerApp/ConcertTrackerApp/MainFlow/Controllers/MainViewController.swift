@@ -56,16 +56,6 @@ class MainViewController: UIViewController {
         if shouldScrollToBottom {
             self.scrollToBottom()
         }
-        print("**********METROAREAID**********")
-        RequestManager.shared.getMetroAreaID(name: "Warsaw") { (metroAreaID) in
-            for item in metroAreaID.resultsPage.results.location {
-                print("WE ARE INSIDE OF THE LOOP")
-                RequestManager.shared.getEventsWithMetroAreaID(id: item.metroArea.id, completion: { (events) in
-                    print(events)
-                })
-            }
-            print("**********METROAREAID**********")
-        }
     }
     
     deinit {
@@ -149,8 +139,9 @@ class MainViewController: UIViewController {
         self.actorsTableView.backgroundColor = DesignSetUps.whiteColor
         
         navigationController?.navigationBar.titleTextAttributes = DesignSetUps.attributes // Navigation title color setUp with attributes
-        
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showArtistDetails", let cell = sender as? CustomTableViewCell {
             let destinationViewController = segue.destination as! ArtistProfileViewController

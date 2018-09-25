@@ -17,9 +17,10 @@
 		1607D8FC210717FD00257B81 /* GetMetroAreaID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D8FB210717FD00257B81 /* GetMetroAreaID.swift */; };
 		1607D8FE210727C100257B81 /* CityEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D8FD210727C100257B81 /* CityEvent.swift */; };
 		1607D90021072C7100257B81 /* GetCityEventsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D8FF21072C7100257B81 /* GetCityEventsRequest.swift */; };
-		1607D90421076AFF00257B81 /* CityConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D90321076AFF00257B81 /* CityConcertsViewController.swift */; };
 		1607D90621076B2900257B81 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1607D90521076B2900257B81 /* SearchViewController.swift */; };
 		1660B6BC20F39876002A3EF2 /* PartnersMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660B6BB20F39875002A3EF2 /* PartnersMessageTableViewCell.swift */; };
+		16B1DFD22124085900B372AE /* DefaultsSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B1DFD12124085900B372AE /* DefaultsSaver.swift */; };
+		16DA620B2135858C000B80F4 /* TestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA620A2135858C000B80F4 /* TestClass.swift */; };
 		16F108EC20F5E5C800077841 /* RoundedProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108EB20F5E5C800077841 /* RoundedProfileImageView.swift */; };
 		16F108EE20F5F08400077841 /* OpenUrlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108ED20F5F08400077841 /* OpenUrlHandler.swift */; };
 		16F108F020F5F77700077841 /* ViewBackgroundSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108EF20F5F77700077841 /* ViewBackgroundSetter.swift */; };
@@ -30,6 +31,10 @@
 		16F108FC2100C26A00077841 /* MusicScanerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108FB2100C26A00077841 /* MusicScanerManager.swift */; };
 		16F108FE2101CA4800077841 /* MusicScannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108FD2101CA4800077841 /* MusicScannerTableViewCell.swift */; };
 		16F109002101CABA00077841 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F108FF2101CABA00077841 /* ScannerViewController.swift */; };
+		16F4C7002112DFE700581AA5 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4C6FF2112DFE700581AA5 /* CitiesViewController.swift */; };
+		16F4C7022112E01800581AA5 /* CityConcertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4C7012112E01800581AA5 /* CityConcertsViewController.swift */; };
+		16F4C7042112E3B600581AA5 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4C7032112E3B600581AA5 /* CityTableViewCell.swift */; };
+		16F4C7062112F51000581AA5 /* ConcertInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4C7052112F51000581AA5 /* ConcertInfoTableViewCell.swift */; };
 		1E050E172091DF5D00823041 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E162091DF5D00823041 /* CustomTableViewCell.swift */; };
 		1E050E1C2091FF7100823041 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1B2091FF7100823041 /* DatabaseManager.swift */; };
 		1E050E1E20930E4E00823041 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E050E1D20930E4E00823041 /* RecommendedViewController.swift */; };
@@ -102,9 +107,10 @@
 		1607D8FB210717FD00257B81 /* GetMetroAreaID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMetroAreaID.swift; sourceTree = "<group>"; };
 		1607D8FD210727C100257B81 /* CityEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEvent.swift; sourceTree = "<group>"; };
 		1607D8FF21072C7100257B81 /* GetCityEventsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCityEventsRequest.swift; sourceTree = "<group>"; };
-		1607D90321076AFF00257B81 /* CityConcertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityConcertsViewController.swift; sourceTree = "<group>"; };
 		1607D90521076B2900257B81 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1660B6BB20F39875002A3EF2 /* PartnersMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PartnersMessageTableViewCell.swift; path = /Users/romanmalasniak/Desktop/concertTrackerApplication/ConcertTrackerApp/ConcertTrackerApp/MessagesFlow/CustomView/PartnersMessageTableViewCell.swift; sourceTree = "<absolute>"; };
+		16B1DFD12124085900B372AE /* DefaultsSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsSaver.swift; sourceTree = "<group>"; };
+		16DA620A2135858C000B80F4 /* TestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClass.swift; sourceTree = "<group>"; };
 		16F108EB20F5E5C800077841 /* RoundedProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedProfileImageView.swift; sourceTree = "<group>"; };
 		16F108ED20F5F08400077841 /* OpenUrlHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenUrlHandler.swift; sourceTree = "<group>"; };
 		16F108EF20F5F77700077841 /* ViewBackgroundSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBackgroundSetter.swift; sourceTree = "<group>"; };
@@ -115,6 +121,10 @@
 		16F108FB2100C26A00077841 /* MusicScanerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicScanerManager.swift; sourceTree = "<group>"; };
 		16F108FD2101CA4800077841 /* MusicScannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicScannerTableViewCell.swift; sourceTree = "<group>"; };
 		16F108FF2101CABA00077841 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		16F4C6FF2112DFE700581AA5 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		16F4C7012112E01800581AA5 /* CityConcertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityConcertsViewController.swift; sourceTree = "<group>"; };
+		16F4C7032112E3B600581AA5 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		16F4C7052112F51000581AA5 /* ConcertInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInfoTableViewCell.swift; sourceTree = "<group>"; };
 		1E050E162091DF5D00823041 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		1E050E1B2091FF7100823041 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1E050E1D20930E4E00823041 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +213,8 @@
 				1605C50420F4EABF00B2C55B /* AuthAlertsExtension.swift */,
 				16F108ED20F5F08400077841 /* OpenUrlHandler.swift */,
 				1607D8F72107128300257B81 /* Spinner.swift */,
+				16B1DFD12124085900B372AE /* DefaultsSaver.swift */,
+				16DA620A2135858C000B80F4 /* TestClass.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -237,8 +249,9 @@
 				1E64983720DBA4AE00325F31 /* FestivalViewController.swift */,
 				16F108F120F5F81E00077841 /* ConcertInfoViewController.swift */,
 				16F108FF2101CABA00077841 /* ScannerViewController.swift */,
-				1607D90321076AFF00257B81 /* CityConcertsViewController.swift */,
 				1607D90521076B2900257B81 /* SearchViewController.swift */,
+				16F4C6FF2112DFE700581AA5 /* CitiesViewController.swift */,
+				16F4C7012112E01800581AA5 /* CityConcertsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -311,6 +324,8 @@
 				1E99868320DCFBC600D33B2A /* CarouselCollectionViewCell.swift */,
 				1E99868420DCFBC600D33B2A /* CarouselCollectionViewCell.xib */,
 				16F108FD2101CA4800077841 /* MusicScannerTableViewCell.swift */,
+				16F4C7032112E3B600581AA5 /* CityTableViewCell.swift */,
+				16F4C7052112F51000581AA5 /* ConcertInfoTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -650,6 +665,7 @@
 				1EF413C620C5788800A640CE /* GetArtistPictureRequest.swift in Sources */,
 				16F108EE20F5F08400077841 /* OpenUrlHandler.swift in Sources */,
 				1E9A929E20EB62CE00BC9915 /* ChatScreenViewController.swift in Sources */,
+				16F4C7022112E01800581AA5 /* CityConcertsViewController.swift in Sources */,
 				1E87F68D208B2DB4000F9501 /* GetVenueByNameResponse.swift in Sources */,
 				16F108F420F7640500077841 /* PreviewTableViewCell.swift in Sources */,
 				1E6191392096F764006A3518 /* NavViewController.swift in Sources */,
@@ -661,6 +677,9 @@
 				1EAD885A2099CE5C00FB3E58 /* MapViewController.swift in Sources */,
 				1E78514520E8CC83008B78D3 /* FirebaseManagerForMessagesFlow.swift in Sources */,
 				1E8BB380209C498800078118 /* GetVenueByCityNameRequest.swift in Sources */,
+				16F4C7002112DFE700581AA5 /* CitiesViewController.swift in Sources */,
+				16F4C7042112E3B600581AA5 /* CityTableViewCell.swift in Sources */,
+				16DA620B2135858C000B80F4 /* TestClass.swift in Sources */,
 				1E64983820DBA4AE00325F31 /* FestivalViewController.swift in Sources */,
 				1EF413CA20C5894D00A640CE /* GettyImagesAbstractRequest.swift in Sources */,
 				1EBE2A2D20E10DDD00391A65 /* AppDelegate.swift in Sources */,
@@ -695,13 +714,14 @@
 				1E97ED9520A1742200CAF939 /* ArtistProfileViewController.swift in Sources */,
 				16F109002101CABA00077841 /* ScannerViewController.swift in Sources */,
 				1660B6BC20F39876002A3EF2 /* PartnersMessageTableViewCell.swift in Sources */,
+				16F4C7062112F51000581AA5 /* ConcertInfoTableViewCell.swift in Sources */,
 				16F108EC20F5E5C800077841 /* RoundedProfileImageView.swift in Sources */,
 				1E87F691208DB985000F9501 /* GetVenueWithCityNameResponse.swift in Sources */,
 				1605C50120F4E71800B2C55B /* AlertManager.swift in Sources */,
 				1E49BF8120B42E1C000CCED6 /* Venue.swift in Sources */,
-				1607D90421076AFF00257B81 /* CityConcertsViewController.swift in Sources */,
 				1E491D0020E638EA00AF5270 /* LogInViewController.swift in Sources */,
 				16F108FC2100C26A00077841 /* MusicScanerManager.swift in Sources */,
+				16B1DFD22124085900B372AE /* DefaultsSaver.swift in Sources */,
 				1E49BF8320B42FEA000CCED6 /* GetVenueById.swift in Sources */,
 				1E41593820A4793200A41899 /* Location.swift in Sources */,
 				1E050E172091DF5D00823041 /* CustomTableViewCell.swift in Sources */,
@@ -843,7 +863,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FHHDVG3C3L;
+				DEVELOPMENT_TEAM = KUMBRC385M;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -866,7 +886,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FHHDVG3C3L;
+				DEVELOPMENT_TEAM = KUMBRC385M;
 				INFOPLIST_FILE = ConcertTrackerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

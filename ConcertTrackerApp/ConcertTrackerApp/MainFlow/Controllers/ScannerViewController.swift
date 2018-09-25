@@ -22,12 +22,9 @@ class ScannerViewController: UIViewController {
         }
     }
     
-    func print123() {
-        print(123)
-    }
-    
     func getAllArtistsWhenScanned() {
-        for item in music! {
+        guard let music = music else { return }
+        for item in music {
             RequestManager.shared.searchForFirstArtist(name: item.artist) { (artist) in
                 guard let firstArtist = artist.first else { return }
                 self.artists.append(firstArtist)
@@ -58,6 +55,17 @@ class ScannerViewController: UIViewController {
         }
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showConcertDetailsFromScanner", let cell = sender as? CustomTableViewCell  {
+//            let destinationViewController = segue.destination as! ConcertDetailsViewController
+//            
+//            guard let cellIndexPath = scannedMusicTableView.indexPath(for: cell) else { return }
+//            
+//            destinationViewController.segueIdentifier == true
+//            
+//        }
+//    }
+    
     
     
     
@@ -65,12 +73,6 @@ class ScannerViewController: UIViewController {
 }
 
 extension ScannerViewController: UITableViewDataSource,UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ArtistProfileViewController()
-        vc.artistModel = artists[indexPath.row]
-        self.present(vc, animated: true, completion: nil)
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artists.count
@@ -92,6 +94,7 @@ extension ScannerViewController: UITableViewDataSource,UITableViewDelegate {
                 }
             }
         }
+        
         if let url = artist.artistImageURL {
             SDWebImageManager.shared().loadImage(with: URL(string: url), options: [], progress: nil, completed: { (image, _, error, cacheType, _, _) in
                 cell.blurredProfileImageView.image = image

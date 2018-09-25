@@ -30,8 +30,8 @@ struct MetroAreaLocation: Decodable {
 }
 
 struct MetroAreaCity:Decodable {
-    let lat: Double
-    let lng: Double
+    let lat: Double?
+    let lng: Double?
     let country: Country
     let displayName: String
 }
